@@ -4,9 +4,11 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using VideoShop.Classes;
 
 namespace VideoShop
 {
@@ -50,9 +52,41 @@ namespace VideoShop
 
         private void loginButton_Click(object sender, EventArgs e)
         {
-            this.Visible = false;
-            MainMenu m = new MainMenu();
-            m.Visible = true;
+
+            
+            Connection cn = new Connection();
+            if (cn.InitializeConnections())
+            {
+                Cities city = new Cities();
+             
+                city.setCity(userNameBox.Text.ToString());
+
+                if( cn.InsertIntoTables( city ) )
+                {
+                    this.Visible = false;
+                    MainMenu m = new MainMenu();
+                    m.Visible = true;
+
+                }       
+
+                
+            }
+            else
+            {
+                loginPanel.Visible = false;
+            }
+            cn.CloseConnection();
+            
+        }
+
+        private void sendRegButton_Click(object sender, EventArgs e)
+        {
+            Connection cn = new Connection();
+            if (!cn.InitializeConnections())
+            {
+                loginPanel.Visible = true;
+            }
+            
         }
     }
 }

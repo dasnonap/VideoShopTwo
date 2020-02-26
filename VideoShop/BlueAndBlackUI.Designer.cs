@@ -30,6 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.minButton = new System.Windows.Forms.Button();
+            this.exitButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.userNameBox = new System.Windows.Forms.TextBox();
@@ -40,21 +42,19 @@
             this.loginButton = new System.Windows.Forms.Button();
             this.orLabel = new System.Windows.Forms.Label();
             this.registerButton = new System.Windows.Forms.Button();
-            this.exitButton = new System.Windows.Forms.Button();
-            this.minButton = new System.Windows.Forms.Button();
             this.loginPanel = new System.Windows.Forms.Panel();
             this.regPanel = new System.Windows.Forms.Panel();
-            this.regName = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.emailBox = new System.Windows.Forms.TextBox();
-            this.usernameRegBox = new System.Windows.Forms.TextBox();
-            this.userRegName = new System.Windows.Forms.Label();
-            this.passwordRegOne = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.returnToLogin = new System.Windows.Forms.Button();
+            this.sendRegButton = new System.Windows.Forms.Button();
             this.passwordRegTwo = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.sendRegButton = new System.Windows.Forms.Button();
-            this.returnToLogin = new System.Windows.Forms.Button();
+            this.passwordRegOne = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.usernameRegBox = new System.Windows.Forms.TextBox();
+            this.userRegName = new System.Windows.Forms.Label();
+            this.emailBox = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.regName = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.loginPanel.SuspendLayout();
             this.regPanel.SuspendLayout();
@@ -68,6 +68,22 @@
             this.panel1.Controls.Add(this.label1);
             resources.ApplyResources(this.panel1, "panel1");
             this.panel1.Name = "panel1";
+            // 
+            // minButton
+            // 
+            this.minButton.FlatAppearance.BorderSize = 0;
+            resources.ApplyResources(this.minButton, "minButton");
+            this.minButton.Name = "minButton";
+            this.minButton.UseVisualStyleBackColor = true;
+            this.minButton.Click += new System.EventHandler(this.minButton_Click);
+            // 
+            // exitButton
+            // 
+            this.exitButton.FlatAppearance.BorderSize = 0;
+            resources.ApplyResources(this.exitButton, "exitButton");
+            this.exitButton.Name = "exitButton";
+            this.exitButton.UseVisualStyleBackColor = true;
+            this.exitButton.Click += new System.EventHandler(this.exitButton_Click);
             // 
             // label1
             // 
@@ -130,22 +146,6 @@
             this.registerButton.UseVisualStyleBackColor = true;
             this.registerButton.Click += new System.EventHandler(this.registerButton_Click);
             // 
-            // exitButton
-            // 
-            this.exitButton.FlatAppearance.BorderSize = 0;
-            resources.ApplyResources(this.exitButton, "exitButton");
-            this.exitButton.Name = "exitButton";
-            this.exitButton.UseVisualStyleBackColor = true;
-            this.exitButton.Click += new System.EventHandler(this.exitButton_Click);
-            // 
-            // minButton
-            // 
-            this.minButton.FlatAppearance.BorderSize = 0;
-            resources.ApplyResources(this.minButton, "minButton");
-            this.minButton.Name = "minButton";
-            this.minButton.UseVisualStyleBackColor = true;
-            this.minButton.Click += new System.EventHandler(this.minButton_Click);
-            // 
             // loginPanel
             // 
             this.loginPanel.Controls.Add(this.registerButton);
@@ -175,44 +175,21 @@
             resources.ApplyResources(this.regPanel, "regPanel");
             this.regPanel.Name = "regPanel";
             // 
-            // regName
+            // returnToLogin
             // 
-            resources.ApplyResources(this.regName, "regName");
-            this.regName.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.regName.Name = "regName";
+            resources.ApplyResources(this.returnToLogin, "returnToLogin");
+            this.returnToLogin.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.returnToLogin.Name = "returnToLogin";
+            this.returnToLogin.UseVisualStyleBackColor = true;
+            this.returnToLogin.Click += new System.EventHandler(this.returnToLogin_Click);
             // 
-            // label2
+            // sendRegButton
             // 
-            resources.ApplyResources(this.label2, "label2");
-            this.label2.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label2.Name = "label2";
-            // 
-            // emailBox
-            // 
-            resources.ApplyResources(this.emailBox, "emailBox");
-            this.emailBox.Name = "emailBox";
-            // 
-            // usernameRegBox
-            // 
-            resources.ApplyResources(this.usernameRegBox, "usernameRegBox");
-            this.usernameRegBox.Name = "usernameRegBox";
-            // 
-            // userRegName
-            // 
-            resources.ApplyResources(this.userRegName, "userRegName");
-            this.userRegName.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.userRegName.Name = "userRegName";
-            // 
-            // passwordRegOne
-            // 
-            resources.ApplyResources(this.passwordRegOne, "passwordRegOne");
-            this.passwordRegOne.Name = "passwordRegOne";
-            // 
-            // label3
-            // 
-            resources.ApplyResources(this.label3, "label3");
-            this.label3.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label3.Name = "label3";
+            resources.ApplyResources(this.sendRegButton, "sendRegButton");
+            this.sendRegButton.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.sendRegButton.Name = "sendRegButton";
+            this.sendRegButton.UseVisualStyleBackColor = true;
+            this.sendRegButton.Click += new System.EventHandler(this.sendRegButton_Click);
             // 
             // passwordRegTwo
             // 
@@ -225,20 +202,44 @@
             this.label4.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.label4.Name = "label4";
             // 
-            // sendRegButton
+            // passwordRegOne
             // 
-            resources.ApplyResources(this.sendRegButton, "sendRegButton");
-            this.sendRegButton.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.sendRegButton.Name = "sendRegButton";
-            this.sendRegButton.UseVisualStyleBackColor = true;
+            resources.ApplyResources(this.passwordRegOne, "passwordRegOne");
+            this.passwordRegOne.Name = "passwordRegOne";
             // 
-            // returnToLogin
+            // label3
             // 
-            resources.ApplyResources(this.returnToLogin, "returnToLogin");
-            this.returnToLogin.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.returnToLogin.Name = "returnToLogin";
-            this.returnToLogin.UseVisualStyleBackColor = true;
-            this.returnToLogin.Click += new System.EventHandler(this.returnToLogin_Click);
+            resources.ApplyResources(this.label3, "label3");
+            this.label3.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.label3.Name = "label3";
+            // 
+            // usernameRegBox
+            // 
+            resources.ApplyResources(this.usernameRegBox, "usernameRegBox");
+            this.usernameRegBox.Name = "usernameRegBox";
+            // 
+            // userRegName
+            // 
+            resources.ApplyResources(this.userRegName, "userRegName");
+            this.userRegName.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.userRegName.Name = "userRegName";
+            // 
+            // emailBox
+            // 
+            resources.ApplyResources(this.emailBox, "emailBox");
+            this.emailBox.Name = "emailBox";
+            // 
+            // label2
+            // 
+            resources.ApplyResources(this.label2, "label2");
+            this.label2.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.label2.Name = "label2";
+            // 
+            // regName
+            // 
+            resources.ApplyResources(this.regName, "regName");
+            this.regName.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.regName.Name = "regName";
             // 
             // Login
             // 
@@ -247,8 +248,8 @@
             this.BackColor = System.Drawing.Color.Black;
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.loginPanel);
             this.Controls.Add(this.regPanel);
+            this.Controls.Add(this.loginPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Login";
             this.Load += new System.EventHandler(this.Login_Load);

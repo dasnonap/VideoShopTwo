@@ -255,9 +255,9 @@
             this.ClientSize = new System.Drawing.Size(996, 620);
             this.Controls.Add(this.topPanel);
             this.Controls.Add(this.menuPanel);
+            this.Controls.Add(this.beginingPanel);
             this.Controls.Add(this.catPanel);
             this.Controls.Add(this.libraryPanel);
-            this.Controls.Add(this.beginingPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainMenu";

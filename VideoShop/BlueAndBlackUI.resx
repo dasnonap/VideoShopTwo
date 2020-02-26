@@ -176,6 +176,73 @@
   <data name="&gt;&gt;panel1.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="minButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="minButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAE
+        7AAABOwBim79cgAAADtJREFUOE+lyLENADAMw7D+/3SK7hwqxAA96MzMCmPBWDAWjAVjwVgwFowFY8FY
+        MBaMxdv7DcaC8dOZC8iinX9bmubaAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="minButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="minButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>299, -1</value>
+  </data>
+  <data name="minButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>47, 18</value>
+  </data>
+  <data name="minButton.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="&gt;&gt;minButton.Name" xml:space="preserve">
+    <value>minButton</value>
+  </data>
+  <data name="&gt;&gt;minButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;minButton.Parent" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="&gt;&gt;minButton.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="exitButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="exitButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAE
+        7AAABOwBim79cgAAAIlJREFUOE+NjIEOACEIQvv/n/bKEwNr1dvcBMHWsZhmZs8jPRGbcB3KuxiIsSth
+        KOeCkcNzOQ5AAtfygAJAgqey3/Dg8IQnyQ4/cGPCRT1wnkWaP1yeZs1Ww00t8qzZxSiFQDzJiyjBgtyW
+        B3R0AeIGJJMPyHQB8Pz0ZLAYAy7fnuQCdmUM0UWzD5jDiIawHnFCAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="exitButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>352, 0</value>
+  </data>
+  <data name="exitButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>58, 18</value>
+  </data>
+  <data name="exitButton.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="&gt;&gt;exitButton.Name" xml:space="preserve">
+    <value>exitButton</value>
+  </data>
+  <data name="&gt;&gt;exitButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;exitButton.Parent" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="&gt;&gt;exitButton.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
   <data name="label1.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -287,7 +354,6 @@
   <data name="usernameLabel.Font" type="System.Drawing.Font, System.Drawing">
     <value>Century Gothic, 8pt, style=Bold</value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="usernameLabel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
@@ -468,73 +534,6 @@
   <data name="&gt;&gt;registerButton.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="exitButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="exitButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAABOwAAATsAYpu/XIAAACJSURBVDhPjYyBDgAhCEL7/5/2yhMDa9Xb3ATB1rGYZmbP
-        Iz0Rm3AdyrsYiLErYSjngpHDczkOQALX8oACQIKnst/w4PCEJ8kOP3BjwkU9cJ5Fmj9cnmbNVsNNLfKs
-        2cUohUA8yYsowYLclgd0dAHiBiSTD8h0AfD89GSwGAMu357kAnZlDNFFsw+Yw4iGsB5xQgAAAABJRU5E
-        rkJggg==
-</value>
-  </data>
-  <data name="exitButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>352, 0</value>
-  </data>
-  <data name="exitButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>58, 18</value>
-  </data>
-  <data name="exitButton.TabIndex" type="System.Int32, mscorlib">
-    <value>10</value>
-  </data>
-  <data name="&gt;&gt;exitButton.Name" xml:space="preserve">
-    <value>exitButton</value>
-  </data>
-  <data name="&gt;&gt;exitButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;exitButton.Parent" xml:space="preserve">
-    <value>panel1</value>
-  </data>
-  <data name="&gt;&gt;exitButton.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="minButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="minButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAABOwAAATsAYpu/XIAAAA7SURBVDhPpcixDQAwDMOw/v90iu4cKsQAPejMzApjwVgw
-        FowFY8FYMBaMBWPBWDAWjMXb+w3GgvHTmQvIop1/W5rm2gAAAABJRU5ErkJggg==
-</value>
-  </data>
-  <data name="minButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="minButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>299, -1</value>
-  </data>
-  <data name="minButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>47, 18</value>
-  </data>
-  <data name="minButton.TabIndex" type="System.Int32, mscorlib">
-    <value>11</value>
-  </data>
-  <data name="&gt;&gt;minButton.Name" xml:space="preserve">
-    <value>minButton</value>
-  </data>
-  <data name="&gt;&gt;minButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;minButton.Parent" xml:space="preserve">
-    <value>panel1</value>
-  </data>
-  <data name="&gt;&gt;minButton.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
   <data name="loginPanel.Location" type="System.Drawing.Point, System.Drawing">
     <value>16, 91</value>
   </data>
@@ -554,7 +553,25 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;loginPanel.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
+  </data>
+  <data name="returnToLogin.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="returnToLogin.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Century Gothic, 8.25pt, style=Bold</value>
+  </data>
+  <data name="returnToLogin.Location" type="System.Drawing.Point, System.Drawing">
+    <value>138, 306</value>
+  </data>
+  <data name="returnToLogin.Size" type="System.Drawing.Size, System.Drawing">
+    <value>98, 26</value>
+  </data>
+  <data name="returnToLogin.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="returnToLogin.Text" xml:space="preserve">
+    <value>обратно</value>
   </data>
   <data name="&gt;&gt;returnToLogin.Name" xml:space="preserve">
     <value>returnToLogin</value>
@@ -568,6 +585,24 @@
   <data name="&gt;&gt;returnToLogin.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
+  <data name="sendRegButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="sendRegButton.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Century Gothic, 9.75pt, style=Bold</value>
+  </data>
+  <data name="sendRegButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>65, 265</value>
+  </data>
+  <data name="sendRegButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>245, 35</value>
+  </data>
+  <data name="sendRegButton.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="sendRegButton.Text" xml:space="preserve">
+    <value>регистрация</value>
+  </data>
   <data name="&gt;&gt;sendRegButton.Name" xml:space="preserve">
     <value>sendRegButton</value>
   </data>
@@ -579,336 +614,6 @@
   </data>
   <data name="&gt;&gt;sendRegButton.ZOrder" xml:space="preserve">
     <value>1</value>
-  </data>
-  <data name="&gt;&gt;passwordRegTwo.Name" xml:space="preserve">
-    <value>passwordRegTwo</value>
-  </data>
-  <data name="&gt;&gt;passwordRegTwo.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;passwordRegTwo.Parent" xml:space="preserve">
-    <value>regPanel</value>
-  </data>
-  <data name="&gt;&gt;passwordRegTwo.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;label4.Name" xml:space="preserve">
-    <value>label4</value>
-  </data>
-  <data name="&gt;&gt;label4.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label4.Parent" xml:space="preserve">
-    <value>regPanel</value>
-  </data>
-  <data name="&gt;&gt;label4.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;passwordRegOne.Name" xml:space="preserve">
-    <value>passwordRegOne</value>
-  </data>
-  <data name="&gt;&gt;passwordRegOne.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;passwordRegOne.Parent" xml:space="preserve">
-    <value>regPanel</value>
-  </data>
-  <data name="&gt;&gt;passwordRegOne.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;label3.Name" xml:space="preserve">
-    <value>label3</value>
-  </data>
-  <data name="&gt;&gt;label3.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label3.Parent" xml:space="preserve">
-    <value>regPanel</value>
-  </data>
-  <data name="&gt;&gt;label3.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="&gt;&gt;usernameRegBox.Name" xml:space="preserve">
-    <value>usernameRegBox</value>
-  </data>
-  <data name="&gt;&gt;usernameRegBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;usernameRegBox.Parent" xml:space="preserve">
-    <value>regPanel</value>
-  </data>
-  <data name="&gt;&gt;usernameRegBox.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="&gt;&gt;userRegName.Name" xml:space="preserve">
-    <value>userRegName</value>
-  </data>
-  <data name="&gt;&gt;userRegName.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;userRegName.Parent" xml:space="preserve">
-    <value>regPanel</value>
-  </data>
-  <data name="&gt;&gt;userRegName.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="&gt;&gt;emailBox.Name" xml:space="preserve">
-    <value>emailBox</value>
-  </data>
-  <data name="&gt;&gt;emailBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;emailBox.Parent" xml:space="preserve">
-    <value>regPanel</value>
-  </data>
-  <data name="&gt;&gt;emailBox.ZOrder" xml:space="preserve">
-    <value>8</value>
-  </data>
-  <data name="&gt;&gt;label2.Name" xml:space="preserve">
-    <value>label2</value>
-  </data>
-  <data name="&gt;&gt;label2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label2.Parent" xml:space="preserve">
-    <value>regPanel</value>
-  </data>
-  <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
-    <value>9</value>
-  </data>
-  <data name="&gt;&gt;regName.Name" xml:space="preserve">
-    <value>regName</value>
-  </data>
-  <data name="&gt;&gt;regName.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;regName.Parent" xml:space="preserve">
-    <value>regPanel</value>
-  </data>
-  <data name="&gt;&gt;regName.ZOrder" xml:space="preserve">
-    <value>10</value>
-  </data>
-  <data name="regPanel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>9, 82</value>
-  </data>
-  <data name="regPanel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>378, 351</value>
-  </data>
-  <data name="regPanel.TabIndex" type="System.Int32, mscorlib">
-    <value>11</value>
-  </data>
-  <data name="&gt;&gt;regPanel.Name" xml:space="preserve">
-    <value>regPanel</value>
-  </data>
-  <data name="&gt;&gt;regPanel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;regPanel.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;regPanel.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="regName.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="regName.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Century Gothic, 14.25pt, style=Bold</value>
-  </data>
-  <data name="regName.Location" type="System.Drawing.Point, System.Drawing">
-    <value>90, 9</value>
-  </data>
-  <data name="regName.Size" type="System.Drawing.Size, System.Drawing">
-    <value>194, 23</value>
-  </data>
-  <data name="regName.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="regName.Text" xml:space="preserve">
-    <value>Р Е Г И С Т Р А Ц И Я </value>
-  </data>
-  <data name="&gt;&gt;regName.Name" xml:space="preserve">
-    <value>regName</value>
-  </data>
-  <data name="&gt;&gt;regName.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;regName.Parent" xml:space="preserve">
-    <value>regPanel</value>
-  </data>
-  <data name="&gt;&gt;regName.ZOrder" xml:space="preserve">
-    <value>10</value>
-  </data>
-  <data name="label2.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="label2.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Century Gothic, 8.25pt, style=Bold</value>
-  </data>
-  <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>161, 74</value>
-  </data>
-  <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>52, 15</value>
-  </data>
-  <data name="label2.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="label2.Text" xml:space="preserve">
-    <value>имейл : </value>
-  </data>
-  <data name="&gt;&gt;label2.Name" xml:space="preserve">
-    <value>label2</value>
-  </data>
-  <data name="&gt;&gt;label2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label2.Parent" xml:space="preserve">
-    <value>regPanel</value>
-  </data>
-  <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
-    <value>9</value>
-  </data>
-  <data name="emailBox.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Century Gothic, 8.25pt, style=Bold</value>
-  </data>
-  <data name="emailBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>81, 92</value>
-  </data>
-  <data name="emailBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>212, 21</value>
-  </data>
-  <data name="emailBox.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;emailBox.Name" xml:space="preserve">
-    <value>emailBox</value>
-  </data>
-  <data name="&gt;&gt;emailBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;emailBox.Parent" xml:space="preserve">
-    <value>regPanel</value>
-  </data>
-  <data name="&gt;&gt;emailBox.ZOrder" xml:space="preserve">
-    <value>8</value>
-  </data>
-  <data name="usernameRegBox.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Century Gothic, 8.25pt, style=Bold</value>
-  </data>
-  <data name="usernameRegBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>81, 140</value>
-  </data>
-  <data name="usernameRegBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>212, 21</value>
-  </data>
-  <data name="usernameRegBox.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;usernameRegBox.Name" xml:space="preserve">
-    <value>usernameRegBox</value>
-  </data>
-  <data name="&gt;&gt;usernameRegBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;usernameRegBox.Parent" xml:space="preserve">
-    <value>regPanel</value>
-  </data>
-  <data name="&gt;&gt;usernameRegBox.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="userRegName.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="userRegName.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Century Gothic, 8.25pt, style=Bold</value>
-  </data>
-  <data name="userRegName.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="userRegName.Location" type="System.Drawing.Point, System.Drawing">
-    <value>123, 122</value>
-  </data>
-  <data name="userRegName.Size" type="System.Drawing.Size, System.Drawing">
-    <value>129, 15</value>
-  </data>
-  <data name="userRegName.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="userRegName.Text" xml:space="preserve">
-    <value>потребителско име : </value>
-  </data>
-  <data name="&gt;&gt;userRegName.Name" xml:space="preserve">
-    <value>userRegName</value>
-  </data>
-  <data name="&gt;&gt;userRegName.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;userRegName.Parent" xml:space="preserve">
-    <value>regPanel</value>
-  </data>
-  <data name="&gt;&gt;userRegName.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="passwordRegOne.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Century Gothic, 8.25pt, style=Bold</value>
-  </data>
-  <data name="passwordRegOne.Location" type="System.Drawing.Point, System.Drawing">
-    <value>81, 190</value>
-  </data>
-  <data name="passwordRegOne.PasswordChar" type="System.Char, mscorlib" xml:space="preserve">
-    <value>*</value>
-  </data>
-  <data name="passwordRegOne.Size" type="System.Drawing.Size, System.Drawing">
-    <value>212, 21</value>
-  </data>
-  <data name="passwordRegOne.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="&gt;&gt;passwordRegOne.Name" xml:space="preserve">
-    <value>passwordRegOne</value>
-  </data>
-  <data name="&gt;&gt;passwordRegOne.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;passwordRegOne.Parent" xml:space="preserve">
-    <value>regPanel</value>
-  </data>
-  <data name="&gt;&gt;passwordRegOne.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="label3.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="label3.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Century Gothic, 8.25pt, style=Bold</value>
-  </data>
-  <data name="label3.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>159, 172</value>
-  </data>
-  <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>57, 15</value>
-  </data>
-  <data name="label3.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
-  <data name="label3.Text" xml:space="preserve">
-    <value>парола : </value>
-  </data>
-  <data name="&gt;&gt;label3.Name" xml:space="preserve">
-    <value>label3</value>
-  </data>
-  <data name="&gt;&gt;label3.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label3.Parent" xml:space="preserve">
-    <value>regPanel</value>
-  </data>
-  <data name="&gt;&gt;label3.ZOrder" xml:space="preserve">
-    <value>5</value>
   </data>
   <data name="passwordRegTwo.Font" type="System.Drawing.Font, System.Drawing">
     <value>Century Gothic, 8.25pt, style=Bold</value>
@@ -970,65 +675,227 @@
   <data name="&gt;&gt;label4.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
-  <data name="sendRegButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="sendRegButton.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Century Gothic, 9.75pt, style=Bold</value>
-  </data>
-  <data name="sendRegButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>65, 265</value>
-  </data>
-  <data name="sendRegButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>245, 35</value>
-  </data>
-  <data name="sendRegButton.TabIndex" type="System.Int32, mscorlib">
-    <value>9</value>
-  </data>
-  <data name="sendRegButton.Text" xml:space="preserve">
-    <value>регистрация</value>
-  </data>
-  <data name="&gt;&gt;sendRegButton.Name" xml:space="preserve">
-    <value>sendRegButton</value>
-  </data>
-  <data name="&gt;&gt;sendRegButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;sendRegButton.Parent" xml:space="preserve">
-    <value>regPanel</value>
-  </data>
-  <data name="&gt;&gt;sendRegButton.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="returnToLogin.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="returnToLogin.Font" type="System.Drawing.Font, System.Drawing">
+  <data name="passwordRegOne.Font" type="System.Drawing.Font, System.Drawing">
     <value>Century Gothic, 8.25pt, style=Bold</value>
   </data>
-  <data name="returnToLogin.Location" type="System.Drawing.Point, System.Drawing">
-    <value>138, 306</value>
+  <data name="passwordRegOne.Location" type="System.Drawing.Point, System.Drawing">
+    <value>81, 190</value>
   </data>
-  <data name="returnToLogin.Size" type="System.Drawing.Size, System.Drawing">
-    <value>98, 26</value>
+  <data name="passwordRegOne.PasswordChar" type="System.Char, mscorlib" xml:space="preserve">
+    <value>*</value>
   </data>
-  <data name="returnToLogin.TabIndex" type="System.Int32, mscorlib">
-    <value>10</value>
+  <data name="passwordRegOne.Size" type="System.Drawing.Size, System.Drawing">
+    <value>212, 21</value>
   </data>
-  <data name="returnToLogin.Text" xml:space="preserve">
-    <value>обратно</value>
+  <data name="passwordRegOne.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
   </data>
-  <data name="&gt;&gt;returnToLogin.Name" xml:space="preserve">
-    <value>returnToLogin</value>
+  <data name="&gt;&gt;passwordRegOne.Name" xml:space="preserve">
+    <value>passwordRegOne</value>
   </data>
-  <data name="&gt;&gt;returnToLogin.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;passwordRegOne.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;returnToLogin.Parent" xml:space="preserve">
+  <data name="&gt;&gt;passwordRegOne.Parent" xml:space="preserve">
     <value>regPanel</value>
   </data>
-  <data name="&gt;&gt;returnToLogin.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;passwordRegOne.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="label3.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label3.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Century Gothic, 8.25pt, style=Bold</value>
+  </data>
+  <data name="label3.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>159, 172</value>
+  </data>
+  <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>57, 15</value>
+  </data>
+  <data name="label3.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="label3.Text" xml:space="preserve">
+    <value>парола : </value>
+  </data>
+  <data name="&gt;&gt;label3.Name" xml:space="preserve">
+    <value>label3</value>
+  </data>
+  <data name="&gt;&gt;label3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label3.Parent" xml:space="preserve">
+    <value>regPanel</value>
+  </data>
+  <data name="&gt;&gt;label3.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="usernameRegBox.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Century Gothic, 8.25pt, style=Bold</value>
+  </data>
+  <data name="usernameRegBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>81, 140</value>
+  </data>
+  <data name="usernameRegBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>212, 21</value>
+  </data>
+  <data name="usernameRegBox.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;usernameRegBox.Name" xml:space="preserve">
+    <value>usernameRegBox</value>
+  </data>
+  <data name="&gt;&gt;usernameRegBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;usernameRegBox.Parent" xml:space="preserve">
+    <value>regPanel</value>
+  </data>
+  <data name="&gt;&gt;usernameRegBox.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="userRegName.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="userRegName.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Century Gothic, 8.25pt, style=Bold</value>
+  </data>
+  <data name="userRegName.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="userRegName.Location" type="System.Drawing.Point, System.Drawing">
+    <value>123, 122</value>
+  </data>
+  <data name="userRegName.Size" type="System.Drawing.Size, System.Drawing">
+    <value>129, 15</value>
+  </data>
+  <data name="userRegName.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="userRegName.Text" xml:space="preserve">
+    <value>потребителско име : </value>
+  </data>
+  <data name="&gt;&gt;userRegName.Name" xml:space="preserve">
+    <value>userRegName</value>
+  </data>
+  <data name="&gt;&gt;userRegName.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;userRegName.Parent" xml:space="preserve">
+    <value>regPanel</value>
+  </data>
+  <data name="&gt;&gt;userRegName.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="emailBox.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Century Gothic, 8.25pt, style=Bold</value>
+  </data>
+  <data name="emailBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>81, 92</value>
+  </data>
+  <data name="emailBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>212, 21</value>
+  </data>
+  <data name="emailBox.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;emailBox.Name" xml:space="preserve">
+    <value>emailBox</value>
+  </data>
+  <data name="&gt;&gt;emailBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;emailBox.Parent" xml:space="preserve">
+    <value>regPanel</value>
+  </data>
+  <data name="&gt;&gt;emailBox.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="label2.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label2.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Century Gothic, 8.25pt, style=Bold</value>
+  </data>
+  <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>161, 74</value>
+  </data>
+  <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>52, 15</value>
+  </data>
+  <data name="label2.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="label2.Text" xml:space="preserve">
+    <value>имейл : </value>
+  </data>
+  <data name="&gt;&gt;label2.Name" xml:space="preserve">
+    <value>label2</value>
+  </data>
+  <data name="&gt;&gt;label2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label2.Parent" xml:space="preserve">
+    <value>regPanel</value>
+  </data>
+  <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="regName.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="regName.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Century Gothic, 14.25pt, style=Bold</value>
+  </data>
+  <data name="regName.Location" type="System.Drawing.Point, System.Drawing">
+    <value>90, 9</value>
+  </data>
+  <data name="regName.Size" type="System.Drawing.Size, System.Drawing">
+    <value>194, 23</value>
+  </data>
+  <data name="regName.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
+  </data>
+  <data name="regName.Text" xml:space="preserve">
+    <value>Р Е Г И С Т Р А Ц И Я </value>
+  </data>
+  <data name="&gt;&gt;regName.Name" xml:space="preserve">
+    <value>regName</value>
+  </data>
+  <data name="&gt;&gt;regName.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;regName.Parent" xml:space="preserve">
+    <value>regPanel</value>
+  </data>
+  <data name="&gt;&gt;regName.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="regPanel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>9, 82</value>
+  </data>
+  <data name="regPanel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>378, 351</value>
+  </data>
+  <data name="regPanel.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="&gt;&gt;regPanel.Name" xml:space="preserve">
+    <value>regPanel</value>
+  </data>
+  <data name="&gt;&gt;regPanel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;regPanel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;regPanel.ZOrder" xml:space="preserve">
+    <value>2</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
