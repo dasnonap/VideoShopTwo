@@ -11,18 +11,17 @@ namespace VideoShop.Classes
     
     class Connection
     {
-        private String connString;
+        private string connString;
         private SqlConnection cnn ;
 
-        //dobyr nachin za connection? 
-        private void InitializingString()
+        public Connection()
         {
             connString = "Data Source=DESKTOP-U6A27FU\\IVANSQL; Initial Catalog=VideoShop; User ID=sa; Password=123456";
-
         }
+        //dobyr nachin za connection? 
+        
         public bool InitializeConnections()
         {
-            InitializingString();
             cnn = new SqlConnection(connString);
             try
             {
@@ -63,6 +62,7 @@ namespace VideoShop.Classes
 
                         break;
                     }
+
                 default:
                     break;
             }

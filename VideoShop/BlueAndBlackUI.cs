@@ -53,7 +53,7 @@ namespace VideoShop
         private void loginButton_Click(object sender, EventArgs e)
         {
 
-            
+            //to do
             Connection cn = new Connection();
             if (cn.InitializeConnections())
             {
@@ -81,6 +81,7 @@ namespace VideoShop
 
         private void sendRegButton_Click(object sender, EventArgs e)
         {
+            //to do
             Connection cn = new Connection();
             if (!cn.InitializeConnections())
             {
@@ -88,8 +89,7 @@ namespace VideoShop
             }
 
 
-            //input = raw data
-            //yes = hashed data z
+            
             string input = usernameRegBox.Text;
             string yes;
             Pepper p = new Pepper();

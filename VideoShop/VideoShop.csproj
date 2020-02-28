@@ -70,9 +70,12 @@
     <Compile Include="Classes\Cities.cs" />
     <Compile Include="Classes\Connection.cs" />
     <Compile Include="Classes\Countries.cs" />
+    <Compile Include="Classes\Films.cs" />
     <Compile Include="Classes\Genres.cs" />
     <Compile Include="Classes\Pepper.cs" />
+    <Compile Include="Classes\Series.cs" />
     <Compile Include="Classes\ServicesNames.cs" />
+    <Compile Include="Classes\StaffPositions.cs" />
     <Compile Include="Classes\Types.cs" />
     <Compile Include="Classes\Users.cs" />
     <Compile Include="MainMenu.cs">
