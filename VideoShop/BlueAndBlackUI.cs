@@ -86,19 +86,17 @@ namespace VideoShop
             {
                 loginPanel.Visible = true;
             }
+
+
             //input = raw data
             //yes = hashed data z
             string input = usernameRegBox.Text;
             string yes;
-            using (SHA256 hash = SHA256.Create())
-            {
-                byte[] usernameByteSource = Encoding.UTF8.GetBytes(input);
-                byte[] hashUsername = hash.ComputeHash(usernameByteSource);
-                yes = BitConverter.ToString(hashUsername).Replace("-", String.Empty);
-            }
-            emailBox.Text = yes;
+            Pepper p = new Pepper();
+           
+            emailBox.Text = p.PepperOnTheDish(input);
 
-            
+
         }
     }
 }
