@@ -19,7 +19,10 @@ namespace VideoShop.Classes
             connString = "Data Source=DESKTOP-U6A27FU\\IVANSQL; Initial Catalog=VideoShop; User ID=sa; Password=123456";
         }
         //dobyr nachin za connection? 
-        
+        public SqlConnection returnConnection()
+        {
+            return cnn;
+        }
         public bool InitializeConnections()
         {
             cnn = new SqlConnection(connString);
@@ -52,13 +55,7 @@ namespace VideoShop.Classes
             {
                 case "Cities":
                     {
-                        query = "EXEC CITIES_INS @name";
-                        SqlCommand comm = new SqlCommand(query, cnn);
-
-                        Cities newCity = c as Cities;
                         
-                        comm.Parameters.Add( "@name", newCity.getCity() );
-                        result = comm.ExecuteNonQuery();
 
                         break;
                     }
