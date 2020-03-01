@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using VideoShop.Classes;
+using VideoShop.TableClasses;
 
 namespace VideoShop
 {
@@ -24,6 +25,12 @@ namespace VideoShop
 
             this.BackColor = Color.FromArgb(220, 93, 1);
             panel1.BackColor = Color.FromArgb(255, 192, 57);
+            
+
+            CitiesTable table = new CitiesTable();
+            List<Cities> list = new List<Cities>();
+            table.Select(list);
+
             panel2.BackColor = Color.FromArgb(255, 192, 57);
 
         }
@@ -54,8 +61,12 @@ namespace VideoShop
         {
 
             //to do
-            Connection cn = new Connection();
-            if (cn.InitializeConnections())
+            CitiesTable table = new CitiesTable();
+            if(table.Insert( new Cities( userNameBox.Text.ToString() ) ) )
+            {
+                MessageBox.Show("added succsesfully");
+            }
+           /* if (cn)
             {
                 Cities city = new Cities();
              
@@ -75,19 +86,19 @@ namespace VideoShop
             {
                 loginPanel.Visible = false;
             }
-            cn.CloseConnection();
-            
+            cn.CloseConnection();*/
+
         }
 
         private void sendRegButton_Click(object sender, EventArgs e)
         {
             //to do
-            Connection cn = new Connection();
+           /* Connection cn = new Connection();
             if (!cn.InitializeConnections())
             {
                 loginPanel.Visible = true;
             }
-
+            */
 
             
             string input = usernameRegBox.Text;

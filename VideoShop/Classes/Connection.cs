@@ -6,74 +6,39 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace VideoShop.Classes
-{
-    //connection strings
-    
+{    
     class Connection
     {
-        private string connString;
-        private SqlConnection cnn ;
+        private string connString = "Data Source=DESKTOP-U6A27FU\\IVANSQL; Initial Catalog=VideoShop; User ID=sa; Password=123456";
+        private static Connection _instance = null;
+        private static readonly object _syncObject = new object();
+        private SqlConnection conn;
 
-        public Connection()
+        private Connection()
         {
-            connString = "Data Source=DESKTOP-U6A27FU\\IVANSQL; Initial Catalog=VideoShop; User ID=sa; Password=123456";
+            conn = new SqlConnection(connString);
+            conn.Open();
         }
-        //dobyr nachin za connection? 
+        public static Connection Instance
+        {
+            get
+            {
+                if(_instance == null)
+                {
+                    lock (_syncObject)
+                    {
+                        if(_instance == null)
+                        {
+                            _instance = new Connection();
+                        }
+                    }
+                }
+                return _instance;
+            }
+        }
         public SqlConnection returnConnection()
         {
-            return cnn;
+            return conn;
         }
-        public bool InitializeConnections()
-        {
-            cnn = new SqlConnection(connString);
-            try
-            {
-                cnn.Open();
-                return true;
-            }
-            catch(Exception e){
-                return false;
-            }
-        }
-        public void CloseConnection()
-        {
-            cnn.Close();
-        }
-        
-        public bool InsertIntoTables(Object c)
-        {
-            int result = 0;
-            string query;
-            
-
-            if (c == null)
-            {
-                return false;
-            }
-            
-            switch (c.GetType().Name)
-            {
-                case "Cities":
-                    {
-                        
-
-                        break;
-                    }
-
-                default:
-                    break;
-            }
-
-           
-            if (result < 0)
-            {
-                return false;
-            }
-
-
-            return true;
-            
-        }
-
     }
 }
