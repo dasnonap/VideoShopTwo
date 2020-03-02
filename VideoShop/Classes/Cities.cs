@@ -10,6 +10,8 @@ namespace VideoShop.Classes
     {
         private int cityID = 0;
         private String cityName = "";
+
+        //constructors 
         public Cities()
         {
 

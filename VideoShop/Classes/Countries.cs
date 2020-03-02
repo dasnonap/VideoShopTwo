@@ -8,19 +8,39 @@ namespace VideoShop.Classes
 {
     class Countries
     {
+        private int countryID;
         private string countryName;
+
+        //constructors
         private Countries() { }
-        private Countries(string name)
+        public Countries(string name)
         {
             countryName = name;
         }
-        private void setCountry(string name)
+        public Countries(int id, string name)
+        {
+            countryID = id;
+            countryName = name;
+        }
+
+        //setters
+        public void setCountry(string name)
         {
             countryName = name;
         }
-        private string getCountry()
+        public  void setCountryID(int id)
+        {
+            countryID = id;
+        }
+
+        //getters
+        public string getCountry()
         {
             return countryName;
+        }
+        public int getCountryID()
+        {
+            return countryID;
         }
     }
 }

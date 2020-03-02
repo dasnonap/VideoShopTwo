@@ -27,8 +27,8 @@ namespace VideoShop
             panel1.BackColor = Color.FromArgb(255, 192, 57);
             
 
-            CitiesTable table = new CitiesTable();
-            List<Cities> list = new List<Cities>();
+            TypesTable table = new TypesTable();
+            List<Types> list = new List<Types>();
             table.Select(list);
 
             panel2.BackColor = Color.FromArgb(255, 192, 57);
@@ -60,46 +60,43 @@ namespace VideoShop
         private void loginButton_Click(object sender, EventArgs e)
         {
 
-            //to do
+            //to do tva se pravi v buferniq class s updeitvaneto na dannite
             CitiesTable table = new CitiesTable();
-            if(table.Insert( new Cities( userNameBox.Text.ToString() ) ) )
+            Cities c = new Cities();
+            c.setID(6);
+            c.setCity(userNameBox.Text.ToString());
+            if(table.Delete( c ))
             {
-                MessageBox.Show("added succsesfully");
+                MessageBox.Show("updated succsesfully");
             }
-           /* if (cn)
-            {
-                Cities city = new Cities();
-             
-                city.setCity(userNameBox.Text.ToString());
+            
+            /* if (cn)
+             {
+                 Cities city = new Cities();
 
-                if( cn.InsertIntoTables( city ) )
-                {
-                    this.Visible = false;
-                    MainMenu m = new MainMenu();
-                    m.Visible = true;
+                 city.setCity(userNameBox.Text.ToString());
 
-                }       
+                 if( cn.InsertIntoTables( city ) )
+                 {
+                     this.Visible = false;
+                     MainMenu m = new MainMenu();
+                     m.Visible = true;
 
-                
-            }
-            else
-            {
-                loginPanel.Visible = false;
-            }
-            cn.CloseConnection();*/
+                 }       
+
+
+             }
+             else
+             {
+                 loginPanel.Visible = false;
+             }
+             cn.CloseConnection();*/
 
         }
 
         private void sendRegButton_Click(object sender, EventArgs e)
         {
             //to do
-           /* Connection cn = new Connection();
-            if (!cn.InitializeConnections())
-            {
-                loginPanel.Visible = true;
-            }
-            */
-
             
             string input = usernameRegBox.Text;
             string yes;

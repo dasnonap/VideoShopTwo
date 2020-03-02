@@ -10,51 +10,63 @@ namespace VideoShop.TableClasses
 {
     class CitiesTable
     {
-        private int result;
+        private bool result;
         private string query;
         
         public bool Insert(Cities c)
-        {
+        {            
             query = "EXEC CITIES_INS @name";
             SqlCommand comm = new SqlCommand(query, Connection.Instance.returnConnection() );
 
             comm.Parameters.AddWithValue("@name", c.getCity());
           
-            if(comm.ExecuteNonQuery() != 0)
+            if(comm.ExecuteNonQuery() < 0)
             {
-                return false;
+                result = false;
             }
+
+            c.setID(returnID());
+
             comm.Dispose();
-            return true;
+            result = true;
+            return result;
         }
         public bool Update(Cities c)
         {
             //to do
-            query = "EXEC CITIES_UPD @name";
+            query = "EXEC CITIES_UPD @id, @name";
             SqlCommand comm = new SqlCommand(query, Connection.Instance.returnConnection());
 
+            comm.Parameters.AddWithValue("@id", c.getId());
             comm.Parameters.AddWithValue("@name", c.getCity());
 
-            if (comm.ExecuteNonQuery() != 0)
+            if (comm.ExecuteNonQuery() < 0)
             {
-                return false;
+                result = false;
             }
-            return true;
+            comm.Dispose();
+
+            result = true;
+            return result;
+
+
         }
         public bool Delete(Cities c)
         {
             //to do
-            query = "";
+            query = "DELETE FROM CITIES WHERE CITY_ID = @id";
             SqlCommand comm = new SqlCommand(query, Connection.Instance.returnConnection());
 
-            comm.Parameters.AddWithValue("@name", c.getCity());
+            comm.Parameters.AddWithValue("@id", c.getId());
 
-            if(comm.ExecuteNonQuery() != 0)
+            if (comm.ExecuteNonQuery() < 0)
             {
-                return false;
+                result = false;
             }
+            comm.Dispose();
 
-            return true;
+            result = true;
+            return result;
         }
 
         public bool Select(List<Cities> cities)
@@ -76,8 +88,19 @@ namespace VideoShop.TableClasses
         }
         private int returnID()
         {
-            SqlDataAdapter sr;
-            query = "select IDENT_CURRENT('CITIES') AS LASTID"
+            decimal id = 0;
+            SqlDataReader sr;
+            query = "SELECT IDENT_CURRENT('CITIES') AS LASTID";
+            SqlCommand comm = new SqlCommand(query, Connection.Instance.returnConnection());
+
+            sr = comm.ExecuteReader();
+            while (sr.Read())
+            {
+                id = sr.GetDecimal(0);
+            }
+            
+            return Int32.Parse(id.ToString());
+            
         }
        
 

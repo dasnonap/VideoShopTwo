@@ -8,18 +8,35 @@ namespace VideoShop.Classes
 {
     class Genres
     {
+        private int genreID;
         private string genreName;
 
         //Constructor
+        public Genres() { }
         public Genres(string genre)
         {
             genreName = genre;
         }
-        public Genres() { }
+        public Genres(int id, string genre) 
+        {
+            genreID = id;
+            genreName = genre;
+        }
 
-        public void setGenreName(String name)
+        //setters
+        public void setGenreID(int id)
+        {
+            genreID = id;
+        }
+        public void setGenreName(string name)
         {
             genreName = name;
+        }
+
+        //getters
+        public int getGenreID()
+        {
+            return genreID;
         }
         public string getGenreName()
         {

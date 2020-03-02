@@ -8,17 +8,38 @@ namespace VideoShop.Classes
 {
     class ServicesNames
     {
+        private int servID;
         private string servName;
-        private float servPrice = 0;
+        private double servPrice = 0;
+
+        //Constructors
         public ServicesNames(string name, float price) {
             servName = name;
             servPrice = price;
+        }
+        public ServicesNames(int id, string name, double price)
+        {
+            servID = id;
+            servName = name;
+            servPrice = price;
+        }
+
+        //Setters
+        public void setServID(int id)
+        {
+            servID = id;
+        }
+
+        //Getters
+        public int getServID()
+        {
+            return servID;
         }
         public string getServName()
         {
             return servName;
         }
-        public float getServPrice()
+        public double getServPrice()
         {
             return servPrice;
         }
