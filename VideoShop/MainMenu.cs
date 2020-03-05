@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using VideoShop.BufferClasses;
+using VideoShop.Classes;
 
 namespace VideoShop
 {
@@ -64,6 +66,12 @@ namespace VideoShop
             Panel activePanel = returnActivePanel();
             activePanel.Visible = false;
             beginingPanel.Visible = true;
+            CitiesBuffer buffer = new CitiesBuffer();
+
+            foreach(Cities c in buffer.returnRecords())
+            {
+                citiesRecords.Items.Add(c.getCity());
+            }
         }
 
         private void showLibRadio_CheckedChanged(object sender, EventArgs e)
@@ -106,5 +114,26 @@ namespace VideoShop
             return null;
         }
 
+        private void changeRecord_Click(object sender, EventArgs e)
+        {
+            CitiesBuffer buffer = new CitiesBuffer();
+
+            foreach (Cities c in buffer.returnRecords())
+            {
+                if(c.getCity() == citiesRecords.Text.ToString())
+                {
+                    buffer.changeRow( new Cities( c.getId(), changeName.Text.ToString() ) );
+                }
+            }
+
+            citiesRecords.Items.Clear();
+            changeName.Clear();
+            citiesRecords.Text = "";
+
+            foreach (Cities c in buffer.returnRecords())
+            {
+                citiesRecords.Items.Add(c.getCity());
+            }
+        }
     }
 }

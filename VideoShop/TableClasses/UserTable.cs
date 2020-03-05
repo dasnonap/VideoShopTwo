@@ -71,7 +71,7 @@ namespace VideoShop.TableClasses
             return result;
         }
 
-        public bool Select(Users c)
+        public void Select(Users c)
         {
            /* SqlDataReader sr;
             query = "SELECT * FROM [USERS] WHERE USER_ID = @id";

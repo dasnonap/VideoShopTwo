@@ -8,6 +8,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using VideoShop.BufferClasses;
 using VideoShop.Classes;
 using VideoShop.TableClasses;
 
@@ -27,9 +28,9 @@ namespace VideoShop
             panel1.BackColor = Color.FromArgb(255, 192, 57);
             
 
-            TypesTable table = new TypesTable();
+            /*TypesTable table = new TypesTable();
             List<Types> list = new List<Types>();
-            table.Select(list);
+            table.Select(list);*/
 
             panel2.BackColor = Color.FromArgb(255, 192, 57);
 
@@ -61,7 +62,7 @@ namespace VideoShop
         {
 
             //to do tva se pravi v buferniq class s updeitvaneto na dannite
-            CitiesTable table = new CitiesTable();
+            /*CitiesTable table = new CitiesTable();
             Cities c = new Cities();
             c.setID(6);
             c.setCity(userNameBox.Text.ToString());
@@ -70,41 +71,23 @@ namespace VideoShop
                 MessageBox.Show("updated succsesfully");
             }
             
-            /* if (cn)
-             {
-                 Cities city = new Cities();
+            */
 
-                 city.setCity(userNameBox.Text.ToString());
+            this.Visible = false;
+            MainMenu m = new MainMenu();
+            m.Visible = true;
 
-                 if( cn.InsertIntoTables( city ) )
-                 {
-                     this.Visible = false;
-                     MainMenu m = new MainMenu();
-                     m.Visible = true;
-
-                 }       
-
-
-             }
-             else
-             {
-                 loginPanel.Visible = false;
-             }
-             cn.CloseConnection();*/
 
         }
 
         private void sendRegButton_Click(object sender, EventArgs e)
         {
             //to do
-            
             string input = usernameRegBox.Text;
             string yes;
             Pepper p = new Pepper();
            
             emailBox.Text = p.PepperOnTheDish(input);
-
-
         }
     }
 }
