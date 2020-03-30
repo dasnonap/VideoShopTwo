@@ -12,15 +12,14 @@ namespace VideoShop.TableClasses
     {
         private bool result;
         private string query;
-        
         public bool Insert(Cities c)
-        {            
+        {
             query = "EXEC CITIES_INS @name";
-            SqlCommand comm = new SqlCommand(query, Connection.Instance.returnConnection() );
+            SqlCommand comm = new SqlCommand(query, Connection.Instance.returnConnection());
 
             comm.Parameters.AddWithValue("@name", c.getCity());
-          
-            if(comm.ExecuteNonQuery() < 0)
+
+            if (comm.ExecuteNonQuery() < 0)
             {
                 result = false;
             }
@@ -83,8 +82,8 @@ namespace VideoShop.TableClasses
 
             sr.Close();
             comm.Dispose();
-            return true; 
-            
+            return true;
+
         }
         private int returnID()
         {
@@ -98,76 +97,10 @@ namespace VideoShop.TableClasses
             {
                 id = sr.GetDecimal(0);
             }
-            
+
             return Int32.Parse(id.ToString());
-            
+
         }
-       
-
-        /*old connection class 
-         private string connString;
-        private SqlConnection cnn ;
-
-        public Connection()
-        {
-            connString = "Data Source=DESKTOP-U6A27FU\\IVANSQL; Initial Catalog=VideoShop; User ID=sa; Password=123456";
-        }
-        //dobyr nachin za connection? 
-        public SqlConnection returnConnection()
-        {
-            return cnn;
-        }
-        public bool InitializeConnections()
-        {
-            cnn = new SqlConnection(connString);
-            try
-            {
-                cnn.Open();
-                return true;
-            }
-            catch(Exception e){
-                return false;
-            }
-        }
-        public void CloseConnection()
-        {
-            cnn.Close();
-        }
-        
-        public bool InsertIntoTables(Object c)
-        {
-            int result = 0;
-            string query;
-            
-
-            if (c == null)
-            {
-                return false;
-            }
-            
-            switch (c.GetType().Name)
-            {
-                case "Cities":
-                    {
-                        
-
-                        break;
-                    }
-
-                default:
-                    break;
-            }
-
-           
-            if (result < 0)
-            {
-                return false;
-            }
-
-
-            return true;
-            
-        }
-          */
     }
 }
+

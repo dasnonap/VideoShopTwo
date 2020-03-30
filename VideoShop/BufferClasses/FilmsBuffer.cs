@@ -9,72 +9,76 @@ using VideoShop.TableClasses;
 
 namespace VideoShop.BufferClasses
 {
-    class CitiesBuffer
+    class FilmsBuffer
     {
-        private TableTemplate<Cities> citiesTable = new TableTemplate<Cities>();
-        private List<Object> citiesArray = new List<Object>();
-        public CitiesBuffer()
+        private TableTemplate<Films> filmsTable = new TableTemplate<Films>();
+        private List<Object> filmsArray = new List<Object>();
+
+        public FilmsBuffer()
         {
 
         }
-
-        /// <summary>
-        /// Gets the data from tha DB
-        /// </summary>
-        /// <returns>Returns true if the data is selected successfully, and false if occured an error</returns>
-        public bool initializeCitiesArray()
+        public bool initializeFilmsArray()
         {
-            if( !citiesTable.Select("CITIES", citiesArray ) )
+            if( !filmsTable.Select("FILMS", filmsArray))
             {
                 MessageBox.Show("Неуспешно зареждане на данните");
                 return false;
             }
             return true;
         }
-
+        public List<Object> returnRecords()
+        {
+            return filmsArray;
+        }
 
         /// <summary>
         /// Enters a row into the DB
         /// </summary>
-        /// <param name="c">The structure that needs to be inserted</param>
+        /// <param name="f">The structure that needs to be inserted</param>
         /// <returns>Returns true if the data is selected successfully, and false if occured an error</returns>
-        public bool insertRow(Cities c)
+        public bool insertRow(Films f)
         {
-            if (!checkDuplicateRecord(c))
+            if (!checkDuplicateRecord(f))
             {
                 MessageBox.Show("Този град вече съществува.");
                 return false;
             }
 
-            if( !citiesTable.Insert("CITIES", c))
+            if (!filmsTable.Insert("FILMS", f))
             {
                 MessageBox.Show("Неуспешен опит за извършване на операцията. ");
                 return false;
             }
 
-            addNewRecord(c);
-            return true;            
+            addNewRecord(f);
+            return true;
         }
-        public List<Object> returnRecords()
+        public int getID(string name)
         {
-            return citiesArray;
+            foreach(Films f in filmsArray)
+            {
+                if(f.getName() == name)
+                {
+                    return f.getID();
+                }
+            }
+            return 0;
         }
-
-        public bool changeRow(Cities c)
+        public bool changeRow(Films f)
         {
-            //to do 
-            if ( !checkIfInside(c))
+            if (!checkIfInside(f))
             {
                 MessageBox.Show("Не можe");
                 return false;
             }
 
-            foreach(Cities n in citiesArray)
+            foreach (Films n in filmsArray)
             {
-                if(n.getId() == c.getId())
+                if (n.getID() == f.getID())
                 {
-                    n.setCity( c.getCity() );
-                    if ( !citiesTable.Update("CITIES", n))
+                    n.setFilmSettings(f);
+                    if (!filmsTable.Update("FILMS", n))
                     {
                         MessageBox.Show("no");
                         return false;
@@ -85,43 +89,43 @@ namespace VideoShop.BufferClasses
             return true;
         }
 
-        public bool removeRecord(Cities c)
+        public bool deleteRow(Films f)
         {
-            
-            if (!checkIfInside(c))
+            if (!checkIfNameInside(f))
             {
-                MessageBox.Show("Не можe");
+                MessageBox.Show("no");
                 return false;
             }
 
-            foreach (Cities n in citiesArray)
+            foreach (Films n in filmsArray)
             {
-                if (n.getId() == c.getId())
+                if (n.getName() == f.getName())
                 {
-                    citiesArray.Remove(n);
-                    if (!citiesTable.Delete(c))
+                    f.setID(n.getID());
+                    filmsArray.Remove(n);
+                    if (!filmsTable.Delete(f))
                     {
                         MessageBox.Show("no");
                         return false;
                     }
-                    
+                    break;
                 }
             }
-
             MessageBox.Show("yes");
             return true;
         }
 
+
         /// <summary>
         /// Checks if a record exists 
         /// </summary>
-        /// <param name="c">The new structure that we need to change</param>
+        /// <param name="f">The new structure that we need to change</param>
         /// <returns>Returns true if the record exists, and false if it does not exist</returns>
-        private bool checkIfInside(Cities c)
+        private bool checkIfInside(Films f)
         {
-            foreach(Cities n in citiesArray)
+            foreach (Films n in filmsArray)
             {
-                if(c.getId() == n.getId())
+                if (n.getID() == f.getID())
                 {
                     return true;
                 }
@@ -129,33 +133,41 @@ namespace VideoShop.BufferClasses
             return false;
         }
 
+        private bool checkIfNameInside(Films f)
+        {
+            foreach (Films i in filmsArray)
+            {
+                if (f.getName() == i.getName())
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
 
         /// <summary>
         /// Checks if there is already a duplicate record in the list
         /// </summary>
         /// <param name="c">The new structure that we need to change</param>
         /// <returns>Returns true if the record doesnot exist, and false if exists</returns>
-        private bool checkDuplicateRecord(Cities c)
+        private bool checkDuplicateRecord(Films f)
         {
-            foreach(Cities n in citiesArray)
+            foreach (Films i in filmsArray)
             {
-                if(n.getCity() == c.getCity())
+                if (i.getName() == f.getName())
                 {
                     return false;
                 }
             }
             return true;
         }
-
         /// <summary>
         /// Adds the new record to the buffer list without selecting from the DB
         /// </summary>
-        /// <param name="c">The new structure that needs to be added</param>
-        private void addNewRecord(Cities c)
+        /// <param name="f">The new structure that needs to be added</param>
+        private void addNewRecord(Films f)
         {
-            citiesArray.Add(c);
+            filmsArray.Add(f);
         }
-
-        
     }
 }

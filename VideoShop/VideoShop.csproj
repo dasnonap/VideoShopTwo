@@ -67,23 +67,35 @@
     <Compile Include="BlueAndBlackUI.Designer.cs">
       <DependentUpon>BlueAndBlackUI.cs</DependentUpon>
     </Compile>
+    <Compile Include="BufferClasses\BufferTemplate.cs" />
     <Compile Include="BufferClasses\CitiesBuffer.cs" />
+    <Compile Include="BufferClasses\FilmsBuffer.cs" />
+    <Compile Include="BufferClasses\GenresBuffer.cs" />
+    <Compile Include="BufferClasses\ServicesNamesBuffer.cs" />
     <Compile Include="Classes\Cities.cs" />
     <Compile Include="Classes\Connection.cs" />
     <Compile Include="Classes\Countries.cs" />
     <Compile Include="Classes\Films.cs" />
     <Compile Include="Classes\Genres.cs" />
+    <Compile Include="Classes\GlobalVariables.cs" />
     <Compile Include="Classes\Pepper.cs" />
     <Compile Include="Classes\Series.cs" />
     <Compile Include="Classes\ServicesNames.cs" />
     <Compile Include="Classes\StaffPositions.cs" />
     <Compile Include="Classes\Types.cs" />
     <Compile Include="Classes\Users.cs" />
+    <Compile Include="Classes\ViewControl.cs" />
     <Compile Include="MainMenu.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="MainMenu.Designer.cs">
       <DependentUpon>MainMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OptionsMenuFilms.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OptionsMenuFilms.Designer.cs">
+      <DependentUpon>OptionsMenuFilms.cs</DependentUpon>
     </Compile>
     <Compile Include="OrangeAndGray.cs">
       <SubType>Form</SubType>
@@ -100,6 +112,7 @@
     <Compile Include="TableClasses\SeriesTable.cs" />
     <Compile Include="TableClasses\ServiceTable.cs" />
     <Compile Include="TableClasses\StaffPosTable.cs" />
+    <Compile Include="TableClasses\TableTemplate.cs" />
     <Compile Include="TableClasses\TypesTable.cs" />
     <Compile Include="TableClasses\UserTable.cs" />
     <Compile Include="WarmColorPalleteBG.cs">
@@ -113,6 +126,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MainMenu.resx">
       <DependentUpon>MainMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OptionsMenuFilms.resx">
+      <DependentUpon>OptionsMenuFilms.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="OrangeAndGray.resx">
       <DependentUpon>OrangeAndGray.cs</DependentUpon>

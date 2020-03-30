@@ -42,6 +42,30 @@ namespace VideoShop.Classes
         {
             seriesID = id;
         }
+        public void setProd(string prod)
+        {
+            seriesProd = prod;
+        }
+        public void setLead(string lead)
+        {
+            seriesLeading = lead;
+        }
+        public void setName(string name)
+        {
+            seriesName = name;
+        }
+        public void setSeason(int season)
+        {
+            seriesSeason = season;
+        }
+        public void setGenre(int genre)
+        {
+            seriesGenre = genre;
+        }
+        public void setYear(int year)
+        {
+            seriesYear = year;
+        }
 
         //getters
         public int getSeriesID()

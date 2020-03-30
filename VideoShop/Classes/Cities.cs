@@ -25,6 +25,7 @@ namespace VideoShop.Classes
         {
             this.cityName = city;
         }
+
         //setting data 
         public void setCity(string city)
         {
@@ -43,6 +44,11 @@ namespace VideoShop.Classes
         public int getId()
         {
             return cityID;
+        }
+
+        public string[] getCitiesArray()
+        {
+            return new string[] { cityName };
         }
     }
 }

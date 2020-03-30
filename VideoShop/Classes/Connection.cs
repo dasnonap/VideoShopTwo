@@ -9,7 +9,7 @@ namespace VideoShop.Classes
 {    
     class Connection
     {
-        private string connString = "Data Source=DESKTOP-U6A27FU\\IVANSQL; Initial Catalog=VideoShop; User ID=sa; Password=123456";
+        private string connString = "Data Source=DESKTOP-U6A27FU\\IVANSQL; Initial Catalog=VideoShop; MultipleActiveResultSets=true; User ID=sa; Password=123456";
         private static Connection _instance = null;
         private static readonly object _syncObject = new object();
         private SqlConnection conn;

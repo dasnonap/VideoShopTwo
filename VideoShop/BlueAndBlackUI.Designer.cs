@@ -248,8 +248,8 @@
             this.BackColor = System.Drawing.Color.Black;
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.loginPanel);
             this.Controls.Add(this.regPanel);
+            this.Controls.Add(this.loginPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Login";
             this.Load += new System.EventHandler(this.Login_Load);

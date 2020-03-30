@@ -16,6 +16,8 @@ namespace VideoShop
 {
     public partial class Login : Form
     {
+        private Pepper p = new Pepper();
+        
         public Login()
         {
             InitializeComponent();
@@ -26,8 +28,8 @@ namespace VideoShop
 
             this.BackColor = Color.FromArgb(220, 93, 1);
             panel1.BackColor = Color.FromArgb(255, 192, 57);
-            
 
+            
             /*TypesTable table = new TypesTable();
             List<Types> list = new List<Types>();
             table.Select(list);*/
@@ -62,22 +64,16 @@ namespace VideoShop
         {
 
             //to do tva se pravi v buferniq class s updeitvaneto na dannite
-            /*CitiesTable table = new CitiesTable();
-            Cities c = new Cities();
-            c.setID(6);
-            c.setCity(userNameBox.Text.ToString());
-            if(table.Delete( c ))
-            {
-                MessageBox.Show("updated succsesfully");
-            }
-            
-            */
+            string inputName = userNameBox.Text;
+            string inputPass = passwordBox.Text;
 
+            if (p.CheckForAdmin(inputPass))
+            {
+                GlobalVariables.Instance.setAdminLogged(true);
+            }
             this.Visible = false;
             MainMenu m = new MainMenu();
             m.Visible = true;
-
-
         }
 
         private void sendRegButton_Click(object sender, EventArgs e)
@@ -85,9 +81,13 @@ namespace VideoShop
             //to do
             string input = usernameRegBox.Text;
             string yes;
-            Pepper p = new Pepper();
-           
-            emailBox.Text = p.PepperOnTheDish(input);
+            Cities c = new Cities();
+            emailBox.Text = c.GetType().Name;
+
+
+            //citiesTemplate.Insert("Cities", new Cities(emailBox.Text));
+            
+            
         }
     }
 }

@@ -129,6 +129,17 @@
         QmCC
 </value>
   </data>
+  <data name="adminInfoButton.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
+        EwAACxMBAJqcGAAAAQ1JREFUWEftkesNgzAQg8tYHaa7dpDuksZpjC6HLyII6J9E+iph4ofKI6X0V6TY
+        Ix/89JC+CCkqWPB5LV14rxhEjkeKIIetIIsFe6meNUN1ACkCmBBypJwYv+wAUgRRcXo/pQ6id3WI7pFi
+        p5yMvAPRiI1QxGAAiApA791pA44yB5w6QH3r3vcHowNwZBBBoUXdIcj6RQ4MyMZyH/jAvRg/ssrZdHmB
+        wETgQ+AI1WMzZI8UgTXXAIZ2Mfcav+oAUvS4s5YENEflWaToqceW7KEclWdp/iYP/CQ/D+G8Mh9IERwp
+        jeiN0OKJ5SQasRUuKCdqRFN8ZTkxPey9p9jDXqyQF+5iDpgD5oA/D1jSFzVMvgdthHC5AAAAAElFTkSu
+        QmCC
+</value>
+  </data>
   <data name="exitButton.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAE
@@ -144,6 +155,9 @@
         MBaMxdv7DcaC8dOZC8iinX9bmubaAAAAAElFTkSuQmCC
 </value>
   </data>
+  <metadata name="rightClickStrip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         AAABAAEAICAAAAEAIACoEAAAFgAAACgAAAAgAAAAQAAAAAEAIAAAAAAAgBAAABMLAAATCwAAAAAAAAAA

@@ -29,6 +29,14 @@ namespace VideoShop.Classes
         {
             servID = id;
         }
+        public void setServName(string name)
+        {
+            servName = name;
+        }
+        public void setServPrice(double price)
+        {
+            servPrice = price;
+        }
 
         //Getters
         public int getServID()

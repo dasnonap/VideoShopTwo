@@ -14,6 +14,7 @@ namespace VideoShop.Classes
         private string filmName;
         private int genreId;
         private int filmYear;
+        private string genre;
         //constructors
         public Films() { }
         public Films(string prod, string lead, string name, int genre, int year) 
@@ -38,6 +39,38 @@ namespace VideoShop.Classes
         public void setID(int id)
         {
             filmID = id;
+        }
+        public void setProd(string prod)
+        {
+            filmProducer = prod;
+        }
+        public void setLead(string lead)
+        {
+            filmLeading = lead;
+        }
+        public void setName(string name)
+        {
+            filmName = name;
+        }
+        public void setGenre(int genre)
+        {
+            genreId = genre;
+        }
+        public void setYear(int year)
+        {
+            filmYear = year;
+        }
+        public void setStringGenre(string g)
+        {
+            genre = g;
+        }
+        public void setFilmSettings(Films f)
+        {
+            filmProducer = f.getProducer();
+            filmLeading = f.getLeading();
+            filmName = f.getName();
+            genreId = f.getGenre();
+            filmYear = f.getYear();
         }
         
         //getters
@@ -64,6 +97,16 @@ namespace VideoShop.Classes
         public int getID()
         {
             return filmID;
+        }
+        public string getStringGenre()
+        {
+            return genre;
+        }
+
+
+        public string[] getStringArray()
+        {
+            return new string[] { filmProducer, filmLeading, filmName, genre, filmYear.ToString() };
         }
     }
 }

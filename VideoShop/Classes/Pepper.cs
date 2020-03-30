@@ -25,5 +25,15 @@ namespace VideoShop.Classes
             }
         }
 
+        public bool CheckForAdmin(string adminPassword)
+        {
+            if(adminPassword == "EMP")
+            {
+                return true;
+            }
+
+            return false;
+        }
+
     }
 }
