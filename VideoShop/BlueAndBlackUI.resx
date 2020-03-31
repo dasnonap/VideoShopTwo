@@ -517,7 +517,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;loginPanel.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>2</value>
   </data>
   <data name="returnToLogin.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
@@ -526,7 +526,7 @@
     <value>Century Gothic, 8.25pt, style=Bold</value>
   </data>
   <data name="returnToLogin.Location" type="System.Drawing.Point, System.Drawing">
-    <value>138, 306</value>
+    <value>134, 319</value>
   </data>
   <data name="returnToLogin.Size" type="System.Drawing.Size, System.Drawing">
     <value>98, 26</value>
@@ -556,7 +556,7 @@
     <value>Century Gothic, 9.75pt, style=Bold</value>
   </data>
   <data name="sendRegButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>65, 265</value>
+    <value>61, 278</value>
   </data>
   <data name="sendRegButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>245, 35</value>
@@ -583,7 +583,7 @@
     <value>Century Gothic, 8.25pt, style=Bold</value>
   </data>
   <data name="passwordRegTwo.Location" type="System.Drawing.Point, System.Drawing">
-    <value>81, 235</value>
+    <value>72, 223</value>
   </data>
   <data name="passwordRegTwo.PasswordChar" type="System.Char, mscorlib" xml:space="preserve">
     <value>*</value>
@@ -616,7 +616,7 @@
     <value>NoControl</value>
   </data>
   <data name="label4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>134, 217</value>
+    <value>125, 205</value>
   </data>
   <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
     <value>107, 15</value>
@@ -643,7 +643,7 @@
     <value>Century Gothic, 8.25pt, style=Bold</value>
   </data>
   <data name="passwordRegOne.Location" type="System.Drawing.Point, System.Drawing">
-    <value>81, 190</value>
+    <value>72, 178</value>
   </data>
   <data name="passwordRegOne.PasswordChar" type="System.Char, mscorlib" xml:space="preserve">
     <value>*</value>
@@ -676,7 +676,7 @@
     <value>NoControl</value>
   </data>
   <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>159, 172</value>
+    <value>150, 160</value>
   </data>
   <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
     <value>57, 15</value>
@@ -703,7 +703,7 @@
     <value>Century Gothic, 8.25pt, style=Bold</value>
   </data>
   <data name="usernameRegBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>81, 140</value>
+    <value>72, 128</value>
   </data>
   <data name="usernameRegBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>212, 21</value>
@@ -733,7 +733,7 @@
     <value>NoControl</value>
   </data>
   <data name="userRegName.Location" type="System.Drawing.Point, System.Drawing">
-    <value>123, 122</value>
+    <value>114, 110</value>
   </data>
   <data name="userRegName.Size" type="System.Drawing.Size, System.Drawing">
     <value>129, 15</value>
@@ -760,7 +760,7 @@
     <value>Century Gothic, 8.25pt, style=Bold</value>
   </data>
   <data name="emailBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>81, 92</value>
+    <value>72, 80</value>
   </data>
   <data name="emailBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>212, 21</value>
@@ -787,7 +787,7 @@
     <value>Century Gothic, 8.25pt, style=Bold</value>
   </data>
   <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>161, 74</value>
+    <value>152, 62</value>
   </data>
   <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
     <value>52, 15</value>
@@ -859,7 +859,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;regPanel.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>

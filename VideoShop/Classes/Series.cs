@@ -15,6 +15,7 @@ namespace VideoShop.Classes
         private int seriesSeason;
         private int seriesGenre;
         private int seriesYear;
+        private string genre;
 
         //Constructors
         public Series(string prod, string lead, string name, int season, int genre, int year)
@@ -66,6 +67,19 @@ namespace VideoShop.Classes
         {
             seriesYear = year;
         }
+        public void setSettings(Series s)
+        {
+            seriesProd = s.getProd();
+            seriesLeading = s.getLead();
+            seriesName = s.getName();
+            seriesSeason = s.getSeason();
+            seriesGenre = s.getGenre();
+            seriesYear = s.getYear();
+        }
+        public void setStringGenre(string s)
+        {
+            genre = s;
+        }
 
         //getters
         public int getSeriesID()
@@ -95,6 +109,11 @@ namespace VideoShop.Classes
         public int getYear()
         {
             return seriesYear;
+        }
+
+        public string[] getStringArray()
+        {
+            return new string[] { seriesProd, seriesLeading, seriesName, genre, seriesYear.ToString(), seriesSeason.ToString() };
         }
     }
 }

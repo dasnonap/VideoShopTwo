@@ -13,11 +13,6 @@ namespace VideoShop.TableClasses
     {
         private bool result;
         private string query;
-       
-        
-
-        
-       
         /// <summary>
         /// Функция за добавяне на нов запис в подадена таблица и записът, който ще вкарваме 
         /// </summary>
@@ -78,6 +73,54 @@ namespace VideoShop.TableClasses
             comm.Dispose();
             return true;
         }
+        /// <summary>
+        /// Извлича всички данни за дадената таблица по подаден критерии
+        /// </summary>
+        /// <param name="tableName">Името на таблицата от, която ще взимаме данните</param>
+        /// <param name="arrayT">Масива, където ще слагаме данните</param>
+        /// <param name="t">Критерият, по който ще извличаме данните</param>
+        /// <returns></returns>
+        public bool SelectWhereID(string tableName, List<Object> arrayT, Users u)
+        {
+            SqlDataReader sr;
+            query = "SELECT * FROM " + tableName;
+            switch (tableName)
+            {
+                case "FILM_LIBRARY":
+                    {               
+                        query += " WHERE USER_ID=" + u.getUserID();
+                        break;
+                    }
+                case "SERIES_LIBRARY":
+                    {                      
+                        query += " WHERE USER_ID=" + u.getUserID();
+                        break;
+                    }
+                case "SUBSCRIPTIONS": 
+                    {
+                        query += " WHERE SUBS_USER_ID=" + u.getUserID();
+                        break;
+                    }
+                case "USERS":
+                    {
+                        query += " WHERE [USER_USERNAME]=" + u.getUserName();
+                        break;
+                    }
+            }
+
+            SqlCommand comm = new SqlCommand(query, Connection.Instance.returnConnection());
+
+            sr = comm.ExecuteReader();
+            while (sr.Read())
+            {
+                arrayT.Add(selectReader(sr));
+            }
+
+            sr.Close();
+            comm.Dispose();
+            return true;
+
+        }
 
         /// <summary>
         /// Функция за променяне на съществуващ запис от таблицата 
@@ -111,6 +154,11 @@ namespace VideoShop.TableClasses
             
         }
 
+        /// <summary>
+        /// Функция за изтриване на запис от базата данни
+        /// </summary>
+        /// <param name="t">Записът, който ще изтриваме</param>
+        /// <returns>Връща true ако успешно изтрие записа</returns>
         public bool Delete(T t)
         {
             query = getDeleteQuery(t);
@@ -126,8 +174,6 @@ namespace VideoShop.TableClasses
             result = true;
             return result;
         }
-
-      
 
         /// <summary>
         /// В тази функция спрямо името на таблицата се чете такъв запис от SqlDataReader-a
@@ -170,6 +216,30 @@ namespace VideoShop.TableClasses
                 case "Types":
                     {
                         return new Types(sr.GetInt32(0), sr.GetString(1));
+                    }
+                case "Users":
+                    {
+                        return new Users(sr.GetInt32(0), sr.GetString(1), sr.GetString(2), sr.GetString(3), sr.GetInt32(4));
+                    }
+                case "Positions":
+                    {
+                        return new Positions(sr.GetInt32(0), sr.GetString(1));
+                    }
+                case "Employees":
+                    {
+                        return new Employees(sr.GetInt32(0), sr.GetString(1), sr.GetString(2), sr.GetInt32(3), sr.GetString(4), sr.GetInt32(5), sr.GetInt32(6));
+                    }
+                case "FilmsLibrary":
+                    {
+                        return new FilmsLibrary(sr.GetInt32(0), sr.GetInt32(1));
+                    }
+                case "SeriesLibrary":
+                    {
+                        return new SeriesLibrary(sr.GetInt32(0), sr.GetInt32(1));
+                    }
+                case "Subscriptions":
+                    {
+                        return new Subscriptions(sr.GetInt32(0), sr.GetInt32(1), sr.GetDateTime(2), sr.GetDateTime(3));
                     }
                     
             }
@@ -229,6 +299,21 @@ namespace VideoShop.TableClasses
                 case "Users":
                     {
                         (t as Users).setUserID( returnID( "[USERS]" ) );
+                        break;
+                    }
+                case "Employees":
+                    {
+                        (t as Employees).setID( returnID( "EMPLOYEES" ) );
+                        break; ;
+                    }
+                case "Positions":
+                    {
+                        (t as Positions).setID( returnID( "POSITIONS" ) );
+                        break;
+                    }
+                case "Subscriptions":
+                    {
+                        (t as Subscriptions).setSubID( returnID( "SUBSCRIPTIONS" ) );
                         break;
                     }
             }
@@ -329,6 +414,46 @@ namespace VideoShop.TableClasses
                         comm.Parameters.AddWithValue("@countryID", u.getCountryID());
                         break;
                     }
+                case "Positions":
+                    {
+                        var p = t as Positions;
+                        comm.Parameters.AddWithValue("@desc", p.getPosName());
+                        break;
+                    }
+                case "Employees":
+                    {
+                        var e = t as Employees;
+                        comm.Parameters.AddWithValue("@fname", e.getFirstName());
+                        comm.Parameters.AddWithValue("@lname", e.getLastName());
+                        comm.Parameters.AddWithValue("@salary", e.getSalary());
+                        comm.Parameters.AddWithValue("@phone", e.getPhone());
+                        comm.Parameters.AddWithValue("@positionID", e.getPos());
+                        comm.Parameters.AddWithValue("@cityID", e.getCity());
+                        break;
+                    }
+                case "FilmsLibrary":
+                    {
+                        var f = t as FilmsLibrary;
+                        comm.Parameters.AddWithValue("@FILM_ID", f.getFilmID());
+                        comm.Parameters.AddWithValue("@USER_ID", f.getUserID());
+                        break;
+                    }
+                case "SeriesLibrary":
+                    {
+                        var s = t as SeriesLibrary;
+                        comm.Parameters.AddWithValue("@SERIESID", s.getSeries());
+                        comm.Parameters.AddWithValue("@USERID", s.getUser());
+                        break;
+                    }
+                case "Subscriptions":
+                    {
+                        var s = t as Subscriptions;
+                        comm.Parameters.AddWithValue("@userID", s.getUserID());
+                        comm.Parameters.AddWithValue("@servicesID", s.getServID());
+                        comm.Parameters.AddWithValue("@startDate", s.getStartDate());
+                        comm.Parameters.AddWithValue("@endDate", s.getEndDate());
+                        break;
+                    }
 
 
             }
@@ -411,11 +536,36 @@ namespace VideoShop.TableClasses
                         comm.Parameters.AddWithValue("@countryID", (t as Users).getCountryID());
                         break;
                     }
-               
-
+                case "Employee":
+                    {
+                        var e = t as Employees;
+                        comm.Parameters.AddWithValue("@id", e.getID());
+                        comm.Parameters.AddWithValue("@fName", e.getFirstName());
+                        comm.Parameters.AddWithValue("@lName", e.getLastName());
+                        comm.Parameters.AddWithValue("@salary", e.getSalary());
+                        comm.Parameters.AddWithValue("@ph", e.getPhone());
+                        comm.Parameters.AddWithValue("@posID", e.getPos());
+                        comm.Parameters.AddWithValue("@cityID", e.getCity());
+                        break;
+                    }
+                case "Subscriptions":
+                    {
+                        var s = t as Subscriptions;
+                        comm.Parameters.AddWithValue("@subsID", s.getSubID());
+                        comm.Parameters.AddWithValue("@userID", s.getUserID());
+                        comm.Parameters.AddWithValue("@servicesID", s.getServID());
+                        comm.Parameters.AddWithValue("@startDate", s.getStartDate());
+                        comm.Parameters.AddWithValue("@endDate", s.getEndDate());
+                        break;
+                    }
             }
         }
               
+        /// <summary>
+        /// Създаваме query за изтриване от базата данни за едната от таблиците
+        /// </summary>
+        /// <param name="t">Записът, който ще изтриваме</param>
+        /// <returns>Връща query-то</returns>
         private string getDeleteQuery(T t)
         {
             switch (typeof(T).Name) 
@@ -427,6 +577,38 @@ namespace VideoShop.TableClasses
                 case "Cities":
                     {
                         return "DELETE FROM CITIES WHERE CITY_ID=" + (t as Cities).getId();
+                    }
+                case "Countries":
+                    {
+                        return "DELETE FROM COUNTRIES WHERE COUNTRY_ID=" + (t as Countries).getCountryID();
+                    }
+                case "Genres":
+                    {
+                        return "DELETE FROM GENRES WHERE ID=" + (t as Genres).getGenreID();
+                    }
+                case "Series":
+                    {
+                        return "DELETE FROM SERIES WHERE ID=" + (t as Series).getSeriesID();
+                    }
+                case "ServicesNames":
+                    {
+                        return "DELETE FROM [SERVICES] WHERE ID=" + (t as ServicesNames).getServName();
+                    }
+                case "StaffPositions":
+                    {
+                        return "DELETE FROM POSITIONS WHERE POS_ID=" + (t as StaffPositions).getPosID();
+                    }
+                case "Users":
+                    {
+                        return "DELETE FROM [USERS] WHERE [USER_ID]=" + (t as Users).getUserID();
+                    }
+                case "Employees":
+                    {
+                        return "DELETE FROM EMPLOYEES WHERE EMP_ID=" + (t as Employees).getID();
+                    }
+                case "Subscriptions":
+                    {
+                        return "DELETE FROM SUBSCRIPTIONS WHERE SUBS_ID=" + (t as Subscriptions).getSubID();
                     }
             }
             return null;

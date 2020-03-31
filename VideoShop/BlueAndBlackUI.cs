@@ -16,8 +16,8 @@ namespace VideoShop
 {
     public partial class Login : Form
     {
-        private Pepper p = new Pepper();
-        
+       private MainMenu m = new MainMenu();
+
         public Login()
         {
             InitializeComponent();
@@ -62,32 +62,48 @@ namespace VideoShop
 
         private void loginButton_Click(object sender, EventArgs e)
         {
+            Users loggin = new Users();
+            loggin.setUserName(Pepper.Instance.PepperOnTheDish(userNameBox.Text));
+            loggin.setPassword(Pepper.Instance.PepperOnTheDish(passwordBox.Text));
 
-            //to do tva se pravi v buferniq class s updeitvaneto na dannite
-            string inputName = userNameBox.Text;
-            string inputPass = passwordBox.Text;
-
-            if (p.CheckForAdmin(inputPass))
+            if (Pepper.Instance.CheckForAdmin(loggin.getPass()))
             {
                 GlobalVariables.Instance.setAdminLogged(true);
             }
-            this.Visible = false;
-            MainMenu m = new MainMenu();
-            m.Visible = true;
+
+           if( ViewControl.Instance.checkUserCredentials(loggin))
+            {
+                this.Visible = false;
+
+                m.Visible = true;
+            }
+            else
+            {
+                MessageBox.Show("Грешна парола или потребителско име.");
+            }
+            
         }
 
         private void sendRegButton_Click(object sender, EventArgs e)
         {
-            //to do
-            string input = usernameRegBox.Text;
-            string yes;
-            Cities c = new Cities();
-            emailBox.Text = c.GetType().Name;
-
-
-            //citiesTemplate.Insert("Cities", new Cities(emailBox.Text));
+            Users newUser = new Users();
             
-            
+            if(passwordRegOne.Text == passwordRegTwo.Text)
+            {
+                newUser.setUserName( Pepper.Instance.PepperOnTheDish(usernameRegBox.Text) );
+                newUser.setPassword( Pepper.Instance.PepperOnTheDish(passwordRegOne.Text) );
+                newUser.setEmail(emailBox.Text);
+                newUser.setCountry(1);
+
+                ViewControl.Instance.setData(newUser, "Users");
+                this.Visible = false;
+
+                m.Visible = true;
+            }
+            else
+            {
+                MessageBox.Show("Има разминавания в паролите");
+            }            
         }
     }
 }

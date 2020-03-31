@@ -3,18 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using VideoShop.TableClasses;
 using VideoShop.Classes;
+using VideoShop.TableClasses;
 using System.Windows.Forms;
 
 namespace VideoShop.BufferClasses
 {
-    class ServicesNamesBuffer
+    class SubscriptionsBuffer
     {
-        private TableTemplate<ServicesNames> servicesTable = new TableTemplate<ServicesNames>();
-        private List<Object> servicesArray = new List<Object>();
+        private TableTemplate<Subscriptions> subscriptionTable = new TableTemplate<Subscriptions>();
+        private List<Object> subsArray = new List<Object>();
 
-        public ServicesNamesBuffer()
+        public SubscriptionsBuffer()
         {
 
         }
@@ -25,16 +25,16 @@ namespace VideoShop.BufferClasses
         /// <returns>Връща масив от обекти</returns>
         public List<Object> returnRecords()
         {
-            return servicesArray;
+            return subsArray;
         }
 
         /// <summary>
         /// Взима данните от базата данни и ги записва в буферния масив
         /// </summary>
         /// <returns>Връща true ако всички данни са добавени успешно</returns>
-        public bool initializeServicesArray()
+        public bool initializeSubForUser(Users u)
         {
-            if (!servicesTable.Select("SERVICES", servicesArray))
+            if (!subscriptionTable.SelectWhereID("SUBSCRIPTIONS", subsArray, u))
             {
                 MessageBox.Show("Неуспешно зареждане на данните");
                 return false;
@@ -43,19 +43,34 @@ namespace VideoShop.BufferClasses
         }
 
         /// <summary>
+        /// Взима данните от базата данни и ги записва в буферния масив
+        /// </summary>
+        /// <returns>Връща true ако всички данни са добавени успешно</returns>
+        public bool initializeSubscriptions()
+        {
+            if (!subscriptionTable.Select("SUBSCRIPTIONS", subsArray))
+            {
+                MessageBox.Show("Неуспешно зареждане на данните");
+                return false;
+            }
+            return true;
+        }
+
+
+        /// <summary>
         /// Функция за добавяне на запис 
         /// </summary>
-        /// <param name="s">Записът, който ще добавяме</param>
+        /// <param name="f">Записът, който ще добавяме</param>
         /// <returns>Връща true ако записът е добавен успешно</returns>
-        public bool insertRow(ServicesNames s)
+        public bool insertRow(Subscriptions s)
         {
-            if (!checkDuplicateRecord(s))
+            if (!checkIfInside(s))
             {
                 MessageBox.Show("Този град вече съществува.");
                 return false;
-            }
+            } 
 
-            if (!servicesTable.Insert("SERVICES", s))
+            if (!subscriptionTable.Insert("SUBSCRIPTIONS", s))
             {
                 MessageBox.Show("Неуспешен опит за извършване на операцията. ");
                 return false;
@@ -70,7 +85,7 @@ namespace VideoShop.BufferClasses
         /// </summary>
         /// <param name="s">Вече промененият запис</param>
         /// <returns>Връща true ако промяната е станала успешно</returns>
-        public bool changeRow(ServicesNames s)
+        public bool changeRow(Subscriptions s)
         {
             if (!checkIfInside(s))
             {
@@ -78,13 +93,13 @@ namespace VideoShop.BufferClasses
                 return false;
             }
 
-            foreach (ServicesNames n in servicesArray)
+            foreach (Subscriptions n in subsArray)
             {
-                if (n.getServID() == s.getServID())
+                if (n.getSubID() == s.getSubID())
                 {
-                    n.setServName(s.getServName());
-                    n.setServPrice(s.getServPrice());
-                    if (!servicesTable.Update("SERVICES", n))
+                    n.setEndDate(s.getEndDate());
+                    
+                    if (!subscriptionTable.Update("SUBSCRIPTIONS", n))
                     {
                         MessageBox.Show("no");
                         return false;
@@ -95,50 +110,16 @@ namespace VideoShop.BufferClasses
             return true;
         }
 
-
-        /// <summary>
-        /// Премахване на запис
-        /// </summary>
-        /// <param name="s">Записът, който ще премахваме</param>
-        /// <returns>Връща true ако премахването е успешно</returns>
-        public bool removeRecord(ServicesNames s)
-        {
-
-            if (!checkIfInside(s))
-            {
-                MessageBox.Show("Не можe");
-                return false;
-            }
-
-            foreach (ServicesNames n in servicesArray)
-            {
-                if (n.getServName() == s.getServName())
-                {
-                    s.setServID(n.getServID());
-                    servicesArray.Remove(n);
-                    if (!servicesTable.Delete(s))
-                    {
-                        MessageBox.Show("no");
-                        return false;
-                    }
-
-                }
-            }
-
-            MessageBox.Show("yes");
-            return true;
-        }
-
         /// <summary>
         /// Проверка дали записът съществува в масива
         /// </summary>
         /// <param name="s">Записът, който търсим</param>
         /// <returns>Връща true ако записът съществува </returns>
-        private bool checkIfInside(ServicesNames s)
+        private bool checkIfInside(Subscriptions s)
         {
-            foreach (ServicesNames n in servicesArray)
+            foreach (Subscriptions n in subsArray)
             {
-                if (n.getServID() == s.getServID())
+                if (n.getUserID() == s.getUserID())
                 {
                     return true;
                 }
@@ -147,31 +128,13 @@ namespace VideoShop.BufferClasses
         }
 
         /// <summary>
-        /// Проверява дали има дублиращ запис
-        /// </summary>
-        /// <param name="s">Записът, който проверяваме</param>
-        /// <returns>Връща true ако записът не се дублира</returns>
-        private bool checkDuplicateRecord(ServicesNames s)
-        {
-            foreach (ServicesNames n in servicesArray)
-            {
-                if (n.getServName() == s.getServName())
-                {
-                    return false;
-                }
-            }
-            return true;
-        }
-
-        /// <summary>
         /// Добавяне на нов запис в буферния масив
         /// </summary>
         /// <param name="s">Записът, който добавяме</param>
-        private void addNewRecord(ServicesNames s)
+        private void addNewRecord(Subscriptions s)
         {
-            servicesArray.Add(s);
+            subsArray.Add(s);
         }
-
 
     }
 }

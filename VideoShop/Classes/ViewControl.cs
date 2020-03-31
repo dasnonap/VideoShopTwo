@@ -14,9 +14,15 @@ namespace VideoShop.Classes
         private static ViewControl _instance = null;
         private static readonly object _syncObject = new object();
 
+        private Users loggedUser = new Users();
         private FilmsBuffer films = new FilmsBuffer();
+        private SeriesBuffer series = new SeriesBuffer();
         private GenresBuffer genres = new GenresBuffer();
         private CitiesBuffer cities = new CitiesBuffer();
+        private FilmsLibraryBuffer filmsLibrary = new FilmsLibraryBuffer();
+        private SeriesLibraryBuffer seriesLibrary = new SeriesLibraryBuffer();
+        private UsersBuffer users = new UsersBuffer();
+
         public static ViewControl Instance
         {
             get
@@ -38,11 +44,32 @@ namespace VideoShop.Classes
         {
             films.initializeFilmsArray();
 
+            series.initializeSeriesArray();
+
             genres.initializeGenresArray();
 
             cities.initializeCitiesArray();
+
+            users.initializeSubscriptions();
+
         }
 
+        public bool checkUserCredentials(Users user)
+        {
+            if (!users.checkCredentials(user))
+            {
+                return false;
+            }
+
+            loggedUser = user;
+            filmsLibrary.initializeFilmsForUser(loggedUser);
+            seriesLibrary.initializeSeriesForUser(loggedUser);
+            return true;
+        }
+        public string getLoggedEmail()
+        {
+            return loggedUser.getEmail();
+        }
         public void fillViewControl(ListView view, string sectionName)
         {
             switch (sectionName)
@@ -61,6 +88,29 @@ namespace VideoShop.Classes
                         foreach(Cities c in cities.returnRecords())
                         {
                             view.Items.Add(new ListViewItem(c.getCitiesArray()));
+                        }
+                        break;
+                    }
+                case "FilmsLibrary":
+                    {
+                        foreach(FilmsLibrary f in filmsLibrary.returnRecords())
+                        {
+                            Films film = films.returnFilmByID(f.getFilmID());
+                            film.setStringGenre(genres.returnGenre(film.getGenre()));
+
+                            view.Items.Add(new ListViewItem( film.getStringArray() ) );
+                        }
+
+                        break;
+                    }
+                case "SeriesLibrary":
+                    {
+                        foreach(SeriesLibrary s in seriesLibrary.returnRecords())
+                        {
+                            Series serial = series.returnSeriesByID(s.getSeries());
+                            serial.setStringGenre(genres.returnGenre(serial.getGenre()));
+
+                            view.Items.Add( new ListViewItem( serial.getStringArray() ) );
                         }
                         break;
                     }
@@ -85,15 +135,21 @@ namespace VideoShop.Classes
             }
         }
 
-       public void setData(string data, string tableName)
+       public void setData(Object data, string tableName)
         {
-            string[] array = data.Split(',');
             switch (tableName)
             {
                 case "Films":
                     {
-                        films.insertRow( new Films( array[0], array[1], array[2], genres.returnID(array[3]), Int32.Parse(array[4]) ) );
+                        films.insertRow( data as Films );
+                        break;
+                    }
+                case "Users":
+                    {
+                        users.insertRow(data as Users);
+                        loggedUser = data as Users;
 
+                        filmsLibrary.initializeFilmsForUser(loggedUser);
                         break;
                     }
             }

@@ -62,7 +62,6 @@ namespace VideoShop.BufferClasses
 
         public bool changeRow(Cities c)
         {
-            //to do 
             if ( !checkIfInside(c))
             {
                 MessageBox.Show("Не можe");
@@ -128,8 +127,7 @@ namespace VideoShop.BufferClasses
             }
             return false;
         }
-
-
+        
         /// <summary>
         /// Checks if there is already a duplicate record in the list
         /// </summary>

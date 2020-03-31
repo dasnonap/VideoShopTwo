@@ -79,6 +79,8 @@ namespace VideoShop.Classes
             updateProcedures.Add("POSITIONS", "EXEC POSITIONS_UPD @id, @desc");
             updateProcedures.Add("TYPES", "EXEC TYPES_UPD @id, @name");
             updateProcedures.Add("USERS", "EXEC USERS_UPD @id, @userName, @password, @email, @countryID");
+            updateProcedures.Add("SUBCRIPTIONS", "EXEC SUBSCRIPTION_UPD @subsID, @userID, @servicesID, @startDate, @endDate");
+            updateProcedures.Add("EMPLOYEES", "EXEC EMPLOYEES_UPD @id, @fName, @lName, @salary, @ph, @posId, @cityID");
         }
 
         /// <summary>
@@ -95,7 +97,11 @@ namespace VideoShop.Classes
             insertProcedures.Add("SERVICES", "EXEC SERVICES_INS @name, @price");
             insertProcedures.Add("POSITIONS", "EXEC POSITIONS_INS @desc");
             insertProcedures.Add("TYPES", "EXEC TYPES_INS @name");
-            insertProcedures.Add("USER", "EXEC USERS_INS @userName, @password, @email, @countryID");
+            insertProcedures.Add("USERS", "EXEC USERS_INS @userName, @password, @email, @countryID");
+            insertProcedures.Add("EMPLOYEES", "EXEC EMP_INS @fname, @lname, @salary, @phone, @positionID, @cityID");
+            insertProcedures.Add("SUBSCRIPTIONS", "EXEC SUBSCRIPTION_INS @userID, @servicesID, @startDate, @endDate");
+            insertProcedures.Add("FILM_LIBRARY", "EXEC FILM_LIBRARY_INS @FILMID, @USERID");
+            insertProcedures.Add("SERIES_LIBRARY", "EXEC SERIES_LIBRARY_INS, @SERIESID, @USERID");
         }
     }
 }

@@ -3,20 +3,32 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using VideoShop.TableClasses;
 using VideoShop.Classes;
+using VideoShop.TableClasses;
 using System.Windows.Forms;
 
 namespace VideoShop.BufferClasses
 {
-    class ServicesNamesBuffer
+    class SeriesBuffer
     {
-        private TableTemplate<ServicesNames> servicesTable = new TableTemplate<ServicesNames>();
-        private List<Object> servicesArray = new List<Object>();
+        private TableTemplate<Series> seriesTable = new TableTemplate<Series>();
+        private List<Object> seriesArray = new List<Object>();
 
-        public ServicesNamesBuffer()
+        public SeriesBuffer()
         {
 
+        }
+
+        public Series returnSeriesByID(int id)
+        {
+            foreach (Series i in seriesArray)
+            {
+                if (i.getSeriesID() == id)
+                {
+                    return i;
+                }
+            }
+            return null;
         }
 
         /// <summary>
@@ -25,16 +37,16 @@ namespace VideoShop.BufferClasses
         /// <returns>Връща масив от обекти</returns>
         public List<Object> returnRecords()
         {
-            return servicesArray;
+            return seriesArray;
         }
 
         /// <summary>
         /// Взима данните от базата данни и ги записва в буферния масив
         /// </summary>
         /// <returns>Връща true ако всички данни са добавени успешно</returns>
-        public bool initializeServicesArray()
+        public bool initializeSeriesArray()
         {
-            if (!servicesTable.Select("SERVICES", servicesArray))
+            if (!seriesTable.Select("SERIES", seriesArray))
             {
                 MessageBox.Show("Неуспешно зареждане на данните");
                 return false;
@@ -47,7 +59,7 @@ namespace VideoShop.BufferClasses
         /// </summary>
         /// <param name="s">Записът, който ще добавяме</param>
         /// <returns>Връща true ако записът е добавен успешно</returns>
-        public bool insertRow(ServicesNames s)
+        public bool insertRow(Series s)
         {
             if (!checkDuplicateRecord(s))
             {
@@ -55,7 +67,7 @@ namespace VideoShop.BufferClasses
                 return false;
             }
 
-            if (!servicesTable.Insert("SERVICES", s))
+            if (!seriesTable.Insert("SERIES", s))
             {
                 MessageBox.Show("Неуспешен опит за извършване на операцията. ");
                 return false;
@@ -70,7 +82,7 @@ namespace VideoShop.BufferClasses
         /// </summary>
         /// <param name="s">Вече промененият запис</param>
         /// <returns>Връща true ако промяната е станала успешно</returns>
-        public bool changeRow(ServicesNames s)
+        public bool changeRow(Series s)
         {
             if (!checkIfInside(s))
             {
@@ -78,13 +90,12 @@ namespace VideoShop.BufferClasses
                 return false;
             }
 
-            foreach (ServicesNames n in servicesArray)
+            foreach (Series n in seriesArray)
             {
-                if (n.getServID() == s.getServID())
+                if (n.getSeriesID() == s.getSeriesID())
                 {
-                    n.setServName(s.getServName());
-                    n.setServPrice(s.getServPrice());
-                    if (!servicesTable.Update("SERVICES", n))
+                    n.setSettings(s);
+                    if (!seriesTable.Update("SERIES", n))
                     {
                         MessageBox.Show("no");
                         return false;
@@ -95,13 +106,12 @@ namespace VideoShop.BufferClasses
             return true;
         }
 
-
         /// <summary>
         /// Премахване на запис
         /// </summary>
         /// <param name="s">Записът, който ще премахваме</param>
         /// <returns>Връща true ако премахването е успешно</returns>
-        public bool removeRecord(ServicesNames s)
+        public bool removeRecord(Series s)
         {
 
             if (!checkIfInside(s))
@@ -110,13 +120,13 @@ namespace VideoShop.BufferClasses
                 return false;
             }
 
-            foreach (ServicesNames n in servicesArray)
+            foreach (Series n in seriesArray)
             {
-                if (n.getServName() == s.getServName())
+                if (n.getName() == s.getName())
                 {
-                    s.setServID(n.getServID());
-                    servicesArray.Remove(n);
-                    if (!servicesTable.Delete(s))
+                    s.setSeriesID(n.getSeriesID());
+                    seriesArray.Remove(n);
+                    if (!seriesTable.Delete(s))
                     {
                         MessageBox.Show("no");
                         return false;
@@ -134,11 +144,11 @@ namespace VideoShop.BufferClasses
         /// </summary>
         /// <param name="s">Записът, който търсим</param>
         /// <returns>Връща true ако записът съществува </returns>
-        private bool checkIfInside(ServicesNames s)
+        private bool checkIfInside(Series s)
         {
-            foreach (ServicesNames n in servicesArray)
+            foreach (Series n in seriesArray)
             {
-                if (n.getServID() == s.getServID())
+                if (n.getSeriesID() == s.getSeriesID())
                 {
                     return true;
                 }
@@ -151,11 +161,11 @@ namespace VideoShop.BufferClasses
         /// </summary>
         /// <param name="s">Записът, който проверяваме</param>
         /// <returns>Връща true ако записът не се дублира</returns>
-        private bool checkDuplicateRecord(ServicesNames s)
+        private bool checkDuplicateRecord(Series s)
         {
-            foreach (ServicesNames n in servicesArray)
+            foreach (Series n in seriesArray)
             {
-                if (n.getServName() == s.getServName())
+                if (n.getName() == s.getName())
                 {
                     return false;
                 }
@@ -167,11 +177,9 @@ namespace VideoShop.BufferClasses
         /// Добавяне на нов запис в буферния масив
         /// </summary>
         /// <param name="s">Записът, който добавяме</param>
-        private void addNewRecord(ServicesNames s)
+        private void addNewRecord(Series s)
         {
-            servicesArray.Add(s);
+            seriesArray.Add(s);
         }
-
-
     }
 }

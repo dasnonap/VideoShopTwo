@@ -81,18 +81,33 @@
             this.adminTabView = new System.Windows.Forms.TabControl();
             this.userTabView = new System.Windows.Forms.TabControl();
             this.beginingView = new System.Windows.Forms.TabPage();
-            this.label1 = new System.Windows.Forms.Label();
+            this.welcomeLabel = new System.Windows.Forms.Label();
             this.libraryView = new System.Windows.Forms.TabPage();
+            this.filmLibraryView = new System.Windows.Forms.ListView();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label2 = new System.Windows.Forms.Label();
             this.categoryView = new System.Windows.Forms.TabPage();
             this.label3 = new System.Windows.Forms.Label();
             this.userSeriesView = new System.Windows.Forms.TabPage();
+            this.seriesLibraryView = new System.Windows.Forms.ListView();
+            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader11 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label11 = new System.Windows.Forms.Label();
             this.optionsView = new System.Windows.Forms.TabPage();
             this.label12 = new System.Windows.Forms.Label();
             this.rightClickStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.Change = new System.Windows.Forms.ToolStripMenuItem();
             this.Delete = new System.Windows.Forms.ToolStripMenuItem();
+            this.films = new System.Windows.Forms.RadioButton();
+            this.series = new System.Windows.Forms.RadioButton();
             this.menuPanel.SuspendLayout();
             this.navigationControl.SuspendLayout();
             this.userTab.SuspendLayout();
@@ -697,7 +712,7 @@
             // 
             // beginingView
             // 
-            this.beginingView.Controls.Add(this.label1);
+            this.beginingView.Controls.Add(this.welcomeLabel);
             this.beginingView.Location = new System.Drawing.Point(4, 22);
             this.beginingView.Name = "beginingView";
             this.beginingView.Padding = new System.Windows.Forms.Padding(3);
@@ -706,17 +721,19 @@
             this.beginingView.Text = "Welcome View";
             this.beginingView.UseVisualStyleBackColor = true;
             // 
-            // label1
+            // welcomeLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(184, 273);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(34, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Hello ";
+            this.welcomeLabel.AutoSize = true;
+            this.welcomeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.welcomeLabel.Location = new System.Drawing.Point(81, 48);
+            this.welcomeLabel.Name = "welcomeLabel";
+            this.welcomeLabel.Size = new System.Drawing.Size(65, 24);
+            this.welcomeLabel.TabIndex = 0;
+            this.welcomeLabel.Text = "Hello ";
             // 
             // libraryView
             // 
+            this.libraryView.Controls.Add(this.filmLibraryView);
             this.libraryView.Controls.Add(this.label2);
             this.libraryView.Location = new System.Drawing.Point(4, 22);
             this.libraryView.Name = "libraryView";
@@ -726,17 +743,66 @@
             this.libraryView.Text = "Library View";
             this.libraryView.UseVisualStyleBackColor = true;
             // 
+            // filmLibraryView
+            // 
+            this.filmLibraryView.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.filmLibraryView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1,
+            this.columnHeader2,
+            this.columnHeader3,
+            this.columnHeader4,
+            this.columnHeader5});
+            this.filmLibraryView.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.filmLibraryView.FullRowSelect = true;
+            this.filmLibraryView.GridLines = true;
+            this.filmLibraryView.HideSelection = false;
+            this.filmLibraryView.Location = new System.Drawing.Point(48, 56);
+            this.filmLibraryView.Name = "filmLibraryView";
+            this.filmLibraryView.Size = new System.Drawing.Size(675, 289);
+            this.filmLibraryView.Sorting = System.Windows.Forms.SortOrder.Ascending;
+            this.filmLibraryView.TabIndex = 8;
+            this.filmLibraryView.UseCompatibleStateImageBehavior = false;
+            this.filmLibraryView.View = System.Windows.Forms.View.Details;
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "Продуцент";
+            this.columnHeader1.Width = 128;
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "Главна роля";
+            this.columnHeader2.Width = 137;
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "Име на филма";
+            this.columnHeader3.Width = 183;
+            // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "Жанр";
+            this.columnHeader4.Width = 135;
+            // 
+            // columnHeader5
+            // 
+            this.columnHeader5.Text = "Година";
+            this.columnHeader5.Width = 89;
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(227, 322);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(20, 22);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(34, 13);
+            this.label2.Size = new System.Drawing.Size(156, 24);
             this.label2.TabIndex = 0;
-            this.label2.Text = "library";
+            this.label2.Text = "Вашите Филми";
             // 
             // categoryView
             // 
+            this.categoryView.Controls.Add(this.series);
+            this.categoryView.Controls.Add(this.films);
             this.categoryView.Controls.Add(this.label3);
             this.categoryView.Location = new System.Drawing.Point(4, 22);
             this.categoryView.Name = "categoryView";
@@ -749,7 +815,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(297, 247);
+            this.label3.Location = new System.Drawing.Point(20, 29);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(48, 13);
             this.label3.TabIndex = 0;
@@ -757,6 +823,7 @@
             // 
             // userSeriesView
             // 
+            this.userSeriesView.Controls.Add(this.seriesLibraryView);
             this.userSeriesView.Controls.Add(this.label11);
             this.userSeriesView.Location = new System.Drawing.Point(4, 22);
             this.userSeriesView.Name = "userSeriesView";
@@ -766,14 +833,67 @@
             this.userSeriesView.Text = "Your Series View";
             this.userSeriesView.UseVisualStyleBackColor = true;
             // 
+            // seriesLibraryView
+            // 
+            this.seriesLibraryView.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.seriesLibraryView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader6,
+            this.columnHeader7,
+            this.columnHeader8,
+            this.columnHeader9,
+            this.columnHeader10,
+            this.columnHeader11});
+            this.seriesLibraryView.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.seriesLibraryView.FullRowSelect = true;
+            this.seriesLibraryView.GridLines = true;
+            this.seriesLibraryView.HideSelection = false;
+            this.seriesLibraryView.Location = new System.Drawing.Point(22, 56);
+            this.seriesLibraryView.Name = "seriesLibraryView";
+            this.seriesLibraryView.Size = new System.Drawing.Size(724, 289);
+            this.seriesLibraryView.Sorting = System.Windows.Forms.SortOrder.Ascending;
+            this.seriesLibraryView.TabIndex = 9;
+            this.seriesLibraryView.UseCompatibleStateImageBehavior = false;
+            this.seriesLibraryView.View = System.Windows.Forms.View.Details;
+            // 
+            // columnHeader6
+            // 
+            this.columnHeader6.Text = "Продуцент";
+            this.columnHeader6.Width = 128;
+            // 
+            // columnHeader7
+            // 
+            this.columnHeader7.Text = "Главна роля";
+            this.columnHeader7.Width = 140;
+            // 
+            // columnHeader8
+            // 
+            this.columnHeader8.Text = "Име на филма";
+            this.columnHeader8.Width = 156;
+            // 
+            // columnHeader9
+            // 
+            this.columnHeader9.Text = "Жанр";
+            this.columnHeader9.Width = 114;
+            // 
+            // columnHeader10
+            // 
+            this.columnHeader10.Text = "Година";
+            this.columnHeader10.Width = 88;
+            // 
+            // columnHeader11
+            // 
+            this.columnHeader11.Text = "Сезон";
+            this.columnHeader11.Width = 93;
+            // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(264, 194);
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(18, 29);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(34, 13);
+            this.label11.Size = new System.Drawing.Size(171, 24);
             this.label11.TabIndex = 0;
-            this.label11.Text = "series";
+            this.label11.Text = "Вашите сериали";
             // 
             // optionsView
             // 
@@ -802,22 +922,50 @@
             this.Change,
             this.Delete});
             this.rightClickStrip.Name = "rightClickStrip";
-            this.rightClickStrip.Size = new System.Drawing.Size(181, 70);
+            this.rightClickStrip.Size = new System.Drawing.Size(139, 48);
             this.rightClickStrip.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip1_Opening);
             // 
             // Change
             // 
             this.Change.Name = "Change";
-            this.Change.Size = new System.Drawing.Size(180, 22);
+            this.Change.Size = new System.Drawing.Size(138, 22);
             this.Change.Text = "Промени";
             this.Change.Click += new System.EventHandler(this.Add_Click);
             // 
             // Delete
             // 
             this.Delete.Name = "Delete";
-            this.Delete.Size = new System.Drawing.Size(180, 22);
+            this.Delete.Size = new System.Drawing.Size(138, 22);
             this.Delete.Text = "Изтрии";
             this.Delete.Click += new System.EventHandler(this.Delete_Click);
+            // 
+            // films
+            // 
+            this.films.AutoSize = true;
+            this.films.FlatAppearance.BorderSize = 0;
+            this.films.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.films.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.films.Location = new System.Drawing.Point(87, 21);
+            this.films.Name = "films";
+            this.films.Size = new System.Drawing.Size(180, 25);
+            this.films.TabIndex = 1;
+            this.films.TabStop = true;
+            this.films.Text = "Търсене на Филми";
+            this.films.UseVisualStyleBackColor = true;
+            // 
+            // series
+            // 
+            this.series.AutoSize = true;
+            this.series.FlatAppearance.BorderSize = 0;
+            this.series.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.series.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.series.Location = new System.Drawing.Point(317, 21);
+            this.series.Name = "series";
+            this.series.Size = new System.Drawing.Size(197, 25);
+            this.series.TabIndex = 2;
+            this.series.TabStop = true;
+            this.series.Text = "Търсене на Сериали";
+            this.series.UseVisualStyleBackColor = true;
             // 
             // MainMenu
             // 
@@ -826,8 +974,8 @@
             this.ClientSize = new System.Drawing.Size(996, 620);
             this.Controls.Add(this.menuPanel);
             this.Controls.Add(this.topPanel);
-            this.Controls.Add(this.adminTabView);
             this.Controls.Add(this.userTabView);
+            this.Controls.Add(this.adminTabView);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainMenu";
@@ -906,7 +1054,7 @@
         private System.Windows.Forms.TabControl userTabView;
         private System.Windows.Forms.TabPage beginingView;
         private System.Windows.Forms.TabPage libraryView;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label welcomeLabel;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TabPage categoryView;
         private System.Windows.Forms.Label label3;
@@ -934,5 +1082,20 @@
         private System.Windows.Forms.ToolStripMenuItem Delete;
         private System.Windows.Forms.Button add;
         private System.Windows.Forms.Button Reload;
+        private System.Windows.Forms.ListView filmLibraryView;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ColumnHeader columnHeader2;
+        private System.Windows.Forms.ColumnHeader columnHeader3;
+        private System.Windows.Forms.ColumnHeader columnHeader4;
+        private System.Windows.Forms.ColumnHeader columnHeader5;
+        private System.Windows.Forms.ListView seriesLibraryView;
+        private System.Windows.Forms.ColumnHeader columnHeader6;
+        private System.Windows.Forms.ColumnHeader columnHeader7;
+        private System.Windows.Forms.ColumnHeader columnHeader8;
+        private System.Windows.Forms.ColumnHeader columnHeader9;
+        private System.Windows.Forms.ColumnHeader columnHeader10;
+        private System.Windows.Forms.ColumnHeader columnHeader11;
+        private System.Windows.Forms.RadioButton series;
+        private System.Windows.Forms.RadioButton films;
     }
 }

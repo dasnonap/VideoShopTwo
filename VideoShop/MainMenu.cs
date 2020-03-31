@@ -14,10 +14,8 @@ namespace VideoShop
 {
     public partial class MainMenu : Form
     {
-        private List<Panel> panels = new List<Panel>();
-     
         private GenresBuffer genres = new GenresBuffer();
-        
+
 
         private Dictionary<RadioButton, TabPage> userRadioPanelsPairs = new Dictionary<RadioButton, TabPage>();
         private Dictionary<RadioButton, TabPage> adminRadioPanelsPairs = new Dictionary<RadioButton, TabPage>();
@@ -36,8 +34,8 @@ namespace VideoShop
 
             navigationControl.ItemSize = new Size(0, 1);
             navigationControl.SizeMode = TabSizeMode.Fixed;
-            
-            
+
+
 
             adminTab.BackColor = Color.FromArgb(255, 192, 57);
             userTab.BackColor = Color.FromArgb(255, 192, 57);
@@ -49,7 +47,7 @@ namespace VideoShop
                 adminTabView.ItemSize = new Size(0, 1);
                 adminTabView.SizeMode = TabSizeMode.Fixed;
 
-                
+
                 addOfficeRadio.Checked = true;
 
                 adminLoad();
@@ -61,9 +59,13 @@ namespace VideoShop
                 userTabView.ItemSize = new Size(0, 1);
                 userTabView.SizeMode = TabSizeMode.Fixed;
 
-                showBegginingRadio.Checked = true;      
+
+
+                showBegginingRadio.Checked = true;
+
+                userLoad();
             }
-            
+
         }
 
         private void minButton_Click(object sender, EventArgs e)
@@ -75,7 +77,7 @@ namespace VideoShop
         {
             Environment.Exit(1);
         }
-       
+
         /// <summary>
         /// Тук взимаме всеки един радио бутон слагаме го в списък и променям начина на визуализация на самия радио бутон,
         /// след това взимаме съответните радио бутони и ги слагаме във мап със съотният панел за визуализация
@@ -90,11 +92,13 @@ namespace VideoShop
             options.Add(showLibRadio);
             options.Add(showSeriesRadio);
             options.Add(showOptionRadio);
-            
-            foreach(RadioButton i in options)
+            options.Add(films);
+            options.Add(series);
+
+            foreach (RadioButton i in options)
             {
                 i.Appearance = Appearance.Button;
-                
+
             }
             userRadioPanelsPairs.Add(showBegginingRadio, beginingView);
             userRadioPanelsPairs.Add(showCatRadio, categoryView);
@@ -109,7 +113,7 @@ namespace VideoShop
             adminOptions.Add(addGenresRadio);
             adminOptions.Add(usersRadioButton);
 
-            foreach(RadioButton i in adminOptions)
+            foreach (RadioButton i in adminOptions)
             {
                 i.Appearance = Appearance.Button;
             }
@@ -128,6 +132,7 @@ namespace VideoShop
 
         private void showLibRadio_CheckedChanged(object sender, EventArgs e)
         {
+            filmLibraryView.BackColor = Color.FromArgb(255, 192, 57);
             getActiveOption();
         }
 
@@ -137,6 +142,7 @@ namespace VideoShop
         }
         private void showSeriesRadio_CheckedChanged(object sender, EventArgs e)
         {
+            seriesLibraryView.BackColor = Color.FromArgb(255, 192, 57);
             getActiveOption();
         }
         private void showOptionRadio_CheckedChanged(object sender, EventArgs e)
@@ -146,7 +152,7 @@ namespace VideoShop
 
         private void addOfficeRadio_CheckedChanged(object sender, EventArgs e)
         {
-            
+
             allOfficesView.BackColor = Color.FromArgb(255, 192, 57);
 
             getActiveOption();
@@ -156,7 +162,7 @@ namespace VideoShop
         {
             allFilmsView.BackColor = Color.FromArgb(255, 192, 57);
 
-            foreach(Genres s in genres.returnRecords())
+            foreach (Genres s in genres.returnRecords())
             {
                 genresCombo.Items.Add(s.getGenreName());
             }
@@ -186,9 +192,9 @@ namespace VideoShop
         {
             if (!GlobalVariables.Instance.getAdminLogged())
             {
-                foreach(var pair in userRadioPanelsPairs)
+                foreach (var pair in userRadioPanelsPairs)
                 {
-                    if(pair.Key.Checked)
+                    if (pair.Key.Checked)
                     {
                         userTabView.SelectedTab = pair.Value;
                         pair.Value.BackColor = Color.FromArgb(220, 93, 1);
@@ -201,7 +207,7 @@ namespace VideoShop
                 {
                     if (pair.Key.Checked)
                     {
-                        adminTabView.SelectedTab = pair.Value ;
+                        adminTabView.SelectedTab = pair.Value;
                         pair.Value.BackColor = Color.FromArgb(220, 93, 1);
                     }
                 }
@@ -218,7 +224,7 @@ namespace VideoShop
                     buffer.changeRow( new Cities( c.getId(), changeName.Text.ToString() ) );
                 }
             }
-
+            TO DO
             citiesRecords.Items.Clear();
             changeName.Clear();
             citiesRecords.Text = "";
@@ -234,7 +240,18 @@ namespace VideoShop
 
             ViewControl.Instance.fillViewControl(allFilmsView, "films");
             ViewControl.Instance.fillViewControl(allOfficesView, "cities");
-            
+        }
+
+        private void userLoad()
+        {
+            userNameLabel.Text = ViewControl.Instance.getLoggedEmail();
+            welcomeLabel.Text = "Добре дошли отново " + userNameLabel.Text;
+
+            ViewControl.Instance.fillViewControl(filmLibraryView, "FilmsLibrary");
+            ViewControl.Instance.fillViewControl(seriesLibraryView, "SeriesLibrary");
+
+            films.BackColor = Color.FromArgb(255, 192, 57);
+            series.BackColor = Color.FromArgb(255, 192, 57);
         }
 
         private void button2_Click(object sender, EventArgs e)

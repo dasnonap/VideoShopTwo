@@ -32,6 +32,18 @@ namespace VideoShop.BufferClasses
             return filmsArray;
         }
 
+        public Films returnFilmByID(int id)
+        {
+            foreach(Films i in filmsArray)
+            {
+                if(i.getID() == id)
+                {
+                    return i;
+                }
+            }
+            return null;
+        }
+
         /// <summary>
         /// Enters a row into the DB
         /// </summary>
@@ -65,6 +77,12 @@ namespace VideoShop.BufferClasses
             }
             return 0;
         }
+
+        /// <summary>
+        /// Функция за промяна на запис
+        /// </summary>
+        /// <param name="f">Вече промененият запис</param>
+        /// <returns>Връща true ако промяната е станала успешно</returns>
         public bool changeRow(Films f)
         {
             if (!checkIfInside(f))
@@ -89,6 +107,11 @@ namespace VideoShop.BufferClasses
             return true;
         }
 
+        /// <summary>
+        /// Изтриване на запис
+        /// </summary>
+        /// <param name="f">Записут, който ще изтриваме</param>
+        /// <returns>Връща true ако успешно изтрием записа</returns>
         public bool deleteRow(Films f)
         {
             if (!checkIfNameInside(f))
@@ -133,6 +156,11 @@ namespace VideoShop.BufferClasses
             return false;
         }
 
+        /// <summary>
+        /// Проверка дали записът съществува в масива
+        /// </summary>
+        /// <param name="f">Записът, който търсим</param>
+        /// <returns>Връща true ако записът съществува </returns>
         private bool checkIfNameInside(Films f)
         {
             foreach (Films i in filmsArray)
