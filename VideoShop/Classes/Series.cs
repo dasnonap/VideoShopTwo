@@ -18,6 +18,7 @@ namespace VideoShop.Classes
         private string genre;
 
         //Constructors
+        public Series() { }
         public Series(string prod, string lead, string name, int season, int genre, int year)
         {
             seriesProd = prod;
@@ -80,6 +81,14 @@ namespace VideoShop.Classes
         {
             genre = s;
         }
+        public void setDetails(Films f)
+        {
+            seriesProd = f.getProducer();
+            seriesLeading = f.getLeading();
+            seriesName = f.getName();
+            seriesGenre = f.getGenre();
+            seriesYear = f.getYear();
+        }
 
         //getters
         public int getSeriesID()
@@ -109,6 +118,10 @@ namespace VideoShop.Classes
         public int getYear()
         {
             return seriesYear;
+        }
+        public string getStringGenre()
+        {
+            return genre;
         }
 
         public string[] getStringArray()

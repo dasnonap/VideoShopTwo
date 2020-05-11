@@ -20,7 +20,7 @@ namespace VideoShop.Classes
         private static GlobalVariables _instance = null;
         private static readonly object _syncObject = new object();
         
-        //to do add other global variables
+        
 
         public static GlobalVariables Instance
         {
@@ -44,14 +44,20 @@ namespace VideoShop.Classes
             loadInsertProcedures();
             loadUpdateProcedures();
         }
-        //setters
+        /// <summary>
+        /// Задава глобалната променлива за логнат админ
+        /// </summary>
+        /// <param name="set">променливата която задаваме</param>
         public void setAdminLogged(bool set)
         {
             isAdminLogged = set;
         }
 
 
-        //getters
+        /// <summary>
+        /// Проверява дали е логнат админ
+        /// </summary>
+        /// <returns>Връща true ако админът е логнат</returns>
         public bool getAdminLogged()
         {
             return isAdminLogged;
@@ -101,7 +107,7 @@ namespace VideoShop.Classes
             insertProcedures.Add("EMPLOYEES", "EXEC EMP_INS @fname, @lname, @salary, @phone, @positionID, @cityID");
             insertProcedures.Add("SUBSCRIPTIONS", "EXEC SUBSCRIPTION_INS @userID, @servicesID, @startDate, @endDate");
             insertProcedures.Add("FILM_LIBRARY", "EXEC FILM_LIBRARY_INS @FILMID, @USERID");
-            insertProcedures.Add("SERIES_LIBRARY", "EXEC SERIES_LIBRARY_INS, @SERIESID, @USERID");
+            insertProcedures.Add("SERIES_LIBRARY", "EXEC SERIES_LIBRARY_INS @SERIES_ID, @USER_ID");
         }
     }
 }

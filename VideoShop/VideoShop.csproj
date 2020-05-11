@@ -61,10 +61,42 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BlueAndBlackUI.cs">
+    <Compile Include="BufferClasses\PositionsBuffer.cs" />
+    <Compile Include="BufferClasses\TypesBuffer.cs" />
+    <Compile Include="Forms\AddCitiesMenu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="BlueAndBlackUI.Designer.cs">
+    <Compile Include="Forms\AddCitiesMenu.Designer.cs">
+      <DependentUpon>AddCitiesMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\AddDataMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AddDataMenu.Designer.cs">
+      <DependentUpon>AddDataMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\AddEmployeeMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AddEmployeeMenu.Designer.cs">
+      <DependentUpon>AddEmployeeMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\AddPositionMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AddPositionMenu.Designer.cs">
+      <DependentUpon>AddPositionMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\AddSubscMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AddSubscMenu.Designer.cs">
+      <DependentUpon>AddSubscMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\BlueAndBlackUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\BlueAndBlackUI.Designer.cs">
       <DependentUpon>BlueAndBlackUI.cs</DependentUpon>
     </Compile>
     <Compile Include="BufferClasses\BufferTemplate.cs" />
@@ -96,53 +128,53 @@
     <Compile Include="Classes\Types.cs" />
     <Compile Include="Classes\Users.cs" />
     <Compile Include="Classes\ViewControl.cs" />
-    <Compile Include="MainMenu.cs">
+    <Compile Include="Forms\FilterForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MainMenu.Designer.cs">
+    <Compile Include="Forms\FilterForm.Designer.cs">
+      <DependentUpon>FilterForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\MainMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MainMenu.Designer.cs">
       <DependentUpon>MainMenu.cs</DependentUpon>
     </Compile>
-    <Compile Include="OptionsMenuFilms.cs">
+    <Compile Include="Forms\OptionsMenuFilms.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="OptionsMenuFilms.Designer.cs">
+    <Compile Include="Forms\OptionsMenuFilms.Designer.cs">
       <DependentUpon>OptionsMenuFilms.cs</DependentUpon>
-    </Compile>
-    <Compile Include="OrangeAndGray.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="OrangeAndGray.Designer.cs">
-      <DependentUpon>OrangeAndGray.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TableClasses\CitiesTable.cs" />
-    <Compile Include="TableClasses\CountriesTable.cs" />
-    <Compile Include="TableClasses\FilmsTable.cs" />
-    <Compile Include="TableClasses\GenresTable.cs" />
-    <Compile Include="TableClasses\SeriesTable.cs" />
-    <Compile Include="TableClasses\ServiceTable.cs" />
-    <Compile Include="TableClasses\StaffPosTable.cs" />
     <Compile Include="TableClasses\TableTemplate.cs" />
-    <Compile Include="TableClasses\TypesTable.cs" />
-    <Compile Include="TableClasses\UserTable.cs" />
-    <Compile Include="WarmColorPalleteBG.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="WarmColorPalleteBG.Designer.cs">
-      <DependentUpon>WarmColorPalleteBG.cs</DependentUpon>
-    </Compile>
-    <EmbeddedResource Include="BlueAndBlackUI.resx">
+    <EmbeddedResource Include="Forms\AddCitiesMenu.resx">
+      <DependentUpon>AddCitiesMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AddDataMenu.resx">
+      <DependentUpon>AddDataMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AddEmployeeMenu.resx">
+      <DependentUpon>AddEmployeeMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AddPositionMenu.resx">
+      <DependentUpon>AddPositionMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AddSubscMenu.resx">
+      <DependentUpon>AddSubscMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\BlueAndBlackUI.resx">
       <DependentUpon>BlueAndBlackUI.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainMenu.resx">
+    <EmbeddedResource Include="Forms\FilterForm.resx">
+      <DependentUpon>FilterForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MainMenu.resx">
       <DependentUpon>MainMenu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="OptionsMenuFilms.resx">
+    <EmbeddedResource Include="Forms\OptionsMenuFilms.resx">
       <DependentUpon>OptionsMenuFilms.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="OrangeAndGray.resx">
-      <DependentUpon>OrangeAndGray.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -153,9 +185,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="WarmColorPalleteBG.resx">
-      <DependentUpon>WarmColorPalleteBG.cs</DependentUpon>
-    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

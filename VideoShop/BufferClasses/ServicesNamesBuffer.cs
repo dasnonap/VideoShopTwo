@@ -42,6 +42,18 @@ namespace VideoShop.BufferClasses
             return true;
         }
 
+        public int getID(string name)
+        {
+            foreach (ServicesNames g in servicesArray)
+            {
+                if (g.getServName() == name)
+                {
+                    return g.getServID();
+                }
+            }
+            return 0;
+        }
+
         /// <summary>
         /// Функция за добавяне на запис 
         /// </summary>

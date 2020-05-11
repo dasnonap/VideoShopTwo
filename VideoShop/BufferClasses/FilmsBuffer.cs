@@ -18,6 +18,11 @@ namespace VideoShop.BufferClasses
         {
 
         }
+
+        /// <summary>
+        /// Зареждане на филмите от базата данни
+        /// </summary>
+        /// <returns>Връща true ако успешно са заредени данните от базата данни</returns>
         public bool initializeFilmsArray()
         {
             if( !filmsTable.Select("FILMS", filmsArray))
@@ -27,11 +32,21 @@ namespace VideoShop.BufferClasses
             }
             return true;
         }
+
+        /// <summary>
+        /// Функцията връща масива от филми от базата данни
+        /// </summary>
+        /// <returns>Връща масива</returns>
         public List<Object> returnRecords()
         {
             return filmsArray;
         }
 
+        /// <summary>
+        /// Връща филм по дадено id
+        /// </summary>
+        /// <param name="id">ID-то на филма</param>
+        /// <returns>Филма, който търсим. Ако върне null значи не съществува филм с такова ID</returns>
         public Films returnFilmByID(int id)
         {
             foreach(Films i in filmsArray)
@@ -42,6 +57,94 @@ namespace VideoShop.BufferClasses
                 }
             }
             return null;
+        }
+
+        /// <summary>
+        /// Търсене на филм, по зададени данни
+        /// </summary>
+        /// <param name="f">Критерият за задаване на данните</param>
+        /// <returns>Връща масив от филми, които отговарят на тези критерии</returns>
+        public List<Object> searchByFilter(Films f)
+        {
+            return getGenreSearch(f, filmsArray);
+        }
+        private List<Object> getGenreSearch(Films f, List<Object> array)
+        {
+            if (f.getGenre() != 0)
+            {
+                List<Object> resultArray = new List<Object>();
+                foreach (Films i in array)
+                {
+                    if (i.getGenre() == f.getGenre())
+                    {
+                        resultArray.Add(i);
+                    }
+                }
+                return this.getNameSearch(f, resultArray);
+            }
+            return this.getNameSearch(f, array);
+        }
+        private List<Object> getNameSearch(Films f, List<Object> array)
+        {
+            string name = f.getName();
+            if(!String.IsNullOrEmpty(name))
+            {
+                List<Object> resultArray = new List<Object>();
+                foreach (Films i in array)
+                {
+                    if (i.getName() == f.getName())
+                    {
+                        resultArray.Add(i);
+                    }
+                }
+                return getLeadSearch(f, resultArray);
+            }
+            return getLeadSearch(f, array);
+        }
+        private List<Object> getLeadSearch(Films f, List<Object> array)
+        {
+            if (!String.IsNullOrEmpty(f.getLeading()))
+            {
+                List<Object> resultArray = new List<Object>();
+                foreach (Films i in array)
+                {
+                    if (i.getLeading() == f.getLeading())
+                    {
+                        resultArray.Add(i);
+                    }
+                }
+                return getYearSearch(f, resultArray);
+            }
+            return getYearSearch(f, array);
+        }
+        private List<Object> getYearSearch(Films f, List<Object> array)
+        {
+            if(f.getYear() != 0)
+            {
+                List<Object> resultArray = new List<Object>();
+                foreach (Films i in array)
+                {
+                    if (i.getYear() == f.getYear())
+                    {
+                        resultArray.Add(i);
+                    }                   
+                }
+                return resultArray;
+            }
+            return array;
+        }
+
+
+        public List<Object> adminSearch(Genres g)
+        {
+            List<Object> resultArray = new List<Object>();
+            foreach (Films f in filmsArray){
+                if(f.getStringGenre() == g.getGenreName())
+                {
+                    resultArray.Add(f);
+                }
+            }
+            return resultArray;
         }
 
         /// <summary>
@@ -66,6 +169,12 @@ namespace VideoShop.BufferClasses
             addNewRecord(f);
             return true;
         }
+
+        /// <summary>
+        /// Взимаме id-то по зададено име
+        /// </summary>
+        /// <param name="name">Името, което ще търсим </param>
+        /// <returns>Връща id-то на елемента</returns>
         public int getID(string name)
         {
             foreach(Films f in filmsArray)
@@ -110,7 +219,7 @@ namespace VideoShop.BufferClasses
         /// <summary>
         /// Изтриване на запис
         /// </summary>
-        /// <param name="f">Записут, който ще изтриваме</param>
+        /// <param name="f">Записът, който ще изтриваме</param>
         /// <returns>Връща true ако успешно изтрием записа</returns>
         public bool deleteRow(Films f)
         {
@@ -140,10 +249,10 @@ namespace VideoShop.BufferClasses
 
 
         /// <summary>
-        /// Checks if a record exists 
+        /// Проверява дали структурата съществува
         /// </summary>
-        /// <param name="f">The new structure that we need to change</param>
-        /// <returns>Returns true if the record exists, and false if it does not exist</returns>
+        /// <param name="f">Структурата, която искаме да проверим</param>
+        /// <returns>Връща true ако съществува</returns>
         private bool checkIfInside(Films f)
         {
             foreach (Films n in filmsArray)
@@ -174,10 +283,10 @@ namespace VideoShop.BufferClasses
         }
 
         /// <summary>
-        /// Checks if there is already a duplicate record in the list
+        /// Проверява дали вече съществува дубликат 
         /// </summary>
-        /// <param name="c">The new structure that we need to change</param>
-        /// <returns>Returns true if the record doesnot exist, and false if exists</returns>
+        /// <param name="f">Структурата, която ще проверяваме</param>
+        /// <returns>Връща true ако не съществува</returns>
         private bool checkDuplicateRecord(Films f)
         {
             foreach (Films i in filmsArray)
@@ -189,10 +298,11 @@ namespace VideoShop.BufferClasses
             }
             return true;
         }
+
         /// <summary>
-        /// Adds the new record to the buffer list without selecting from the DB
+        /// Добавя новия запис в буферния масив
         /// </summary>
-        /// <param name="f">The new structure that needs to be added</param>
+        /// <param name="f">Новата структура, която ще добавяме</param>
         private void addNewRecord(Films f)
         {
             filmsArray.Add(f);

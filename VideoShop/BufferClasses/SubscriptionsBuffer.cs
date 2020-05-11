@@ -25,6 +25,7 @@ namespace VideoShop.BufferClasses
         /// <returns>Връща масив от обекти</returns>
         public List<Object> returnRecords()
         {
+
             return subsArray;
         }
 
@@ -64,7 +65,7 @@ namespace VideoShop.BufferClasses
         /// <returns>Връща true ако записът е добавен успешно</returns>
         public bool insertRow(Subscriptions s)
         {
-            if (!checkIfInside(s))
+            if (checkIfInside(s))
             {
                 MessageBox.Show("Този град вече съществува.");
                 return false;

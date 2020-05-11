@@ -29,6 +29,11 @@ namespace VideoShop.Classes
                 return _instance;
             }
         }
+        /// <summary>
+        /// Функцията хешира незащитените данни
+        /// </summary>
+        /// <param name="unseasonedDish">Незащитените данни, които ще хешираме</param>
+        /// <returns>Връща хешираните вече данни</returns>
         public string PepperOnTheDish(string unseasonedDish)
         {
             
@@ -44,6 +49,12 @@ namespace VideoShop.Classes
                 return seasonedDish.ToString();
             }
         }
+        /// <summary>
+        /// Проверява дали подадените данни са верни и сравнява паролите
+        /// </summary>
+        /// <param name="passOne">Първа парола</param>
+        /// <param name="passTwo">Втора парола</param>
+        /// <returns>Връща true ако паролите съвпадат</returns>
         public bool Authenticate(string passOne, string passTwo)
         {
             byte[] one = Encoding.ASCII.GetBytes(passOne);
@@ -58,15 +69,53 @@ namespace VideoShop.Classes
             }
             return true;
         }
-        public bool CheckForAdmin(string adminPassword)
+        /// <summary>
+        /// Проверява дали влиза админ 
+        /// </summary>
+        /// <param name="adminName">Потребителското име на админа</param>
+        /// <param name="adminPassword">Паролата</param>
+        /// <returns>Връща true ако са автентични данните</returns>
+        public bool CheckForAdmin(string adminName, string adminPassword)
         {
-            if(adminPassword == "EMP")
+            if(adminName == this.PepperOnTheDish("admin"))
             {
-                return true;
+                if(findAdmin(adminPassword))
+                {
+                    return true;
+                }
+                return false;
             }
 
             return false;
         }
+        /// <summary>
+        /// Проверява дали паролата съвпада със id на служител
+        /// </summary>
+        /// <param name="adminPass">Парола, която проверяваме</param>
+        /// <returns>Връща true ако има такъв служител</returns>
+        private bool findAdmin(string adminPass) 
+        {
+            int id = 0;
+            char[] array = adminPass.ToCharArray();
+            List<char> cID = new List<char>();
+            for (int i = 0; i < array.Length; i++)
+            {
+                if (char.IsDigit(array[i]))
+                {
+                    cID.Add(array[i]);
+                }
+            }
+            id = Int32.Parse(new string(cID.ToArray()));
+            foreach(Employees e in ViewControl.Instance.getEmployeesArray())
+            {
+                if(e.getID() == id)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
 
     }
 }

@@ -60,6 +60,30 @@ namespace VideoShop.BufferClasses
             return citiesArray;
         }
 
+        public string getCity(int id)
+        {
+            foreach (Cities c in citiesArray)
+            {
+                if (c.getId() == id)
+                {
+                    return c.getCity();
+                }
+            }
+            return "";
+        }
+
+        public int getID(string name)
+        {
+            foreach(Cities c in citiesArray)
+            {
+                if(c.getCity() == name)
+                {
+                    return c.getId();
+                }
+            }
+            return 0;
+        }
+
         public bool changeRow(Cities c)
         {
             if ( !checkIfInside(c))
@@ -78,7 +102,7 @@ namespace VideoShop.BufferClasses
                         MessageBox.Show("no");
                         return false;
                     }
-                    MessageBox.Show("yes");
+                    
                 }
             }
             return true;

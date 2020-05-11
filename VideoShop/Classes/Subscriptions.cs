@@ -39,9 +39,21 @@ namespace VideoShop.Classes
         {
             subID = id;
         }        
+        public void setUserID(int id)
+        {
+            this.userID = id;
+        }
         public void setEndDate(DateTime end)
         {
             endDate = end;
+        }
+        public void setServID(int id)
+        {
+            this.servID = id;
+        }
+        public void setStartDate(DateTime start)
+        {
+            this.startDate = start;
         }
 
         //getters

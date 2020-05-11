@@ -35,7 +35,7 @@ namespace VideoShop.BufferClasses
         /// <returns>Връща true ако всички данни са добавени успешно</returns>
         public bool initializeSeriesForUser(Users u)
         {
-            if (!libraryTable.SelectWhereID("Series_Library", seriesLibraryArray, u))
+            if (!libraryTable.SelectWhereID("SERIES_LIBRARY", seriesLibraryArray, u))
             {
                 MessageBox.Show("Неуспешно зареждане на данните");
                 return false;
@@ -67,8 +67,8 @@ namespace VideoShop.BufferClasses
         /// <returns>Връща true ако премахването е успешно</returns>
         public bool removeRecord(SeriesLibrary f)
         {
-
-            if (!checkIfInside(f))
+            int index = 0;
+            if (checkIfInside(f))
             {
                 MessageBox.Show("Не можe");
                 return false;
@@ -79,20 +79,19 @@ namespace VideoShop.BufferClasses
                 if (n.getSeries() == f.getSeries())
                 {
                     if (n.getUser() == f.getUser())
-                    {
-                        seriesLibraryArray.Remove(n);
+                    {                        
                         if (!libraryTable.Delete(f))
                         {
                             MessageBox.Show("no");
                             return false;
                         }
+                        index = seriesLibraryArray.IndexOf(n);
                     }
-
-
+                    
                 }
             }
-
-            MessageBox.Show("yes");
+            seriesLibraryArray.RemoveAt(index);
+           
             return true;
         }
 

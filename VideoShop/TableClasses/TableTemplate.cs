@@ -239,7 +239,7 @@ namespace VideoShop.TableClasses
                     }
                 case "Subscriptions":
                     {
-                        return new Subscriptions(sr.GetInt32(0), sr.GetInt32(1), sr.GetDateTime(2), sr.GetDateTime(3));
+                        return new Subscriptions(sr.GetInt32(0), sr.GetInt32(1), sr.GetInt32(2), sr.GetDateTime(3), sr.GetDateTime(4));
                     }
                     
             }
@@ -382,6 +382,7 @@ namespace VideoShop.TableClasses
                         comm.Parameters.AddWithValue("@producer", s.getProd());
                         comm.Parameters.AddWithValue("@leading", s.getLead());
                         comm.Parameters.AddWithValue("@series_name", s.getName());
+                        comm.Parameters.AddWithValue("@season", s.getSeason());
                         comm.Parameters.AddWithValue("@genreID", s.getGenre());
                         comm.Parameters.AddWithValue("@seriesYear", s.getYear());
                         break;
@@ -390,7 +391,7 @@ namespace VideoShop.TableClasses
                     {
                         var c = (t as ServicesNames);
                         comm.Parameters.AddWithValue("@name", c.getServName());
-                        comm.Parameters.AddWithValue("@float", c.getServPrice());
+                        comm.Parameters.AddWithValue("@price", c.getServPrice());
                         break;
                     }
                 case "StaffPositions":
@@ -434,15 +435,15 @@ namespace VideoShop.TableClasses
                 case "FilmsLibrary":
                     {
                         var f = t as FilmsLibrary;
-                        comm.Parameters.AddWithValue("@FILM_ID", f.getFilmID());
-                        comm.Parameters.AddWithValue("@USER_ID", f.getUserID());
+                        comm.Parameters.AddWithValue("@FILMID", f.getFilmID());
+                        comm.Parameters.AddWithValue("@USERID", f.getUserID());
                         break;
                     }
                 case "SeriesLibrary":
                     {
                         var s = t as SeriesLibrary;
-                        comm.Parameters.AddWithValue("@SERIESID", s.getSeries());
-                        comm.Parameters.AddWithValue("@USERID", s.getUser());
+                        comm.Parameters.AddWithValue("@SERIES_ID", s.getSeries());
+                        comm.Parameters.AddWithValue("@USER_ID", s.getUser());
                         break;
                     }
                 case "Subscriptions":
@@ -536,7 +537,7 @@ namespace VideoShop.TableClasses
                         comm.Parameters.AddWithValue("@countryID", (t as Users).getCountryID());
                         break;
                     }
-                case "Employee":
+                case "Employees":
                     {
                         var e = t as Employees;
                         comm.Parameters.AddWithValue("@id", e.getID());
@@ -609,6 +610,14 @@ namespace VideoShop.TableClasses
                 case "Subscriptions":
                     {
                         return "DELETE FROM SUBSCRIPTIONS WHERE SUBS_ID=" + (t as Subscriptions).getSubID();
+                    }
+                case "FilmsLibrary":
+                    {
+                        return "DELETE FROM FILM_LIBRARY WHERE FILM_ID=" + (t as FilmsLibrary).getFilmID() + " AND USER_ID=" + (t as FilmsLibrary).getUserID();
+                    }
+                case "SeriesLibrary":
+                    {
+                        return "DELETE FROM SERIES_LIBRARY WHERE SERIES_ID=" + (t as SeriesLibrary).getSeries() + "AND USER_ID=" + (t as SeriesLibrary).getUser();
                     }
             }
             return null;

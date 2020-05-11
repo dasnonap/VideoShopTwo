@@ -41,6 +41,8 @@
             this.submitChanges = new System.Windows.Forms.Button();
             this.Close = new System.Windows.Forms.Button();
             this.Border = new System.Windows.Forms.Panel();
+            this.seasonLabel = new System.Windows.Forms.Label();
+            this.seasonBox = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -119,6 +121,7 @@
             // 
             // genreBox
             // 
+            this.genreBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.genreBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.genreBox.FormattingEnabled = true;
             this.genreBox.Location = new System.Drawing.Point(166, 187);
@@ -133,12 +136,13 @@
             this.yearBox.Name = "yearBox";
             this.yearBox.Size = new System.Drawing.Size(142, 16);
             this.yearBox.TabIndex = 9;
+            this.yearBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.yearBox_KeyPress);
             // 
             // submitChanges
             // 
             this.submitChanges.FlatAppearance.BorderSize = 0;
             this.submitChanges.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.submitChanges.Location = new System.Drawing.Point(112, 315);
+            this.submitChanges.Location = new System.Drawing.Point(130, 338);
             this.submitChanges.Name = "submitChanges";
             this.submitChanges.Size = new System.Drawing.Size(95, 23);
             this.submitChanges.TabIndex = 10;
@@ -151,7 +155,7 @@
             this.Close.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.Close.FlatAppearance.BorderSize = 0;
             this.Close.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Close.Location = new System.Drawing.Point(213, 315);
+            this.Close.Location = new System.Drawing.Point(231, 338);
             this.Close.Name = "Close";
             this.Close.Size = new System.Drawing.Size(95, 23);
             this.Close.TabIndex = 11;
@@ -169,13 +173,36 @@
             this.Border.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Border_MouseMove);
             this.Border.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Border_MouseUp);
             // 
+            // seasonLabel
+            // 
+            this.seasonLabel.AutoSize = true;
+            this.seasonLabel.Location = new System.Drawing.Point(16, 282);
+            this.seasonLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.seasonLabel.Name = "seasonLabel";
+            this.seasonLabel.Size = new System.Drawing.Size(62, 17);
+            this.seasonLabel.TabIndex = 13;
+            this.seasonLabel.Text = "Сезон : ";
+            this.seasonLabel.Visible = false;
+            // 
+            // seasonBox
+            // 
+            this.seasonBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.seasonBox.Location = new System.Drawing.Point(166, 283);
+            this.seasonBox.Name = "seasonBox";
+            this.seasonBox.Size = new System.Drawing.Size(142, 16);
+            this.seasonBox.TabIndex = 14;
+            this.seasonBox.Visible = false;
+            this.seasonBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.seasonBox_KeyPress);
+            // 
             // OptionsMenuFilms
             // 
             this.AcceptButton = this.submitChanges;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.Close;
-            this.ClientSize = new System.Drawing.Size(328, 350);
+            this.ClientSize = new System.Drawing.Size(338, 373);
+            this.Controls.Add(this.seasonBox);
+            this.Controls.Add(this.seasonLabel);
             this.Controls.Add(this.Border);
             this.Controls.Add(this.Close);
             this.Controls.Add(this.submitChanges);
@@ -215,5 +242,7 @@
         private System.Windows.Forms.Button submitChanges;
         private System.Windows.Forms.Button Close;
         private System.Windows.Forms.Panel Border;
+        private System.Windows.Forms.Label seasonLabel;
+        private System.Windows.Forms.TextBox seasonBox;
     }
 }

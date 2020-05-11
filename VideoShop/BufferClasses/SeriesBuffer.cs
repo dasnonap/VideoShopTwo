@@ -31,6 +31,87 @@ namespace VideoShop.BufferClasses
             return null;
         }
 
+        public List<Object> searchByFilter(Series s)
+        {
+            return searchByGenre(s, seriesArray);
+        }
+        private List<Object> searchByGenre(Series s, List<Object> array)
+        {
+            if (!String.IsNullOrEmpty(s.getStringGenre()))
+            {
+                List<Object> resultArray = new List<Object>();
+                foreach (Series i in array)
+                {
+                    if (i.getGenre() == s.getGenre())
+                    {
+                        resultArray.Add(i);
+                    }
+                }
+                return this.getNameSearch(s, resultArray);
+            }
+            return this.getNameSearch(s, array);
+        }
+
+        private List<Object> getNameSearch(Series s, List<Object> array)
+        {
+            if (!String.IsNullOrEmpty(s.getName()))
+            {
+                List<Object> resultArray = new List<Object>();
+                foreach (Series i in array)
+                {
+                    if (i.getName() == s.getName())
+                    {
+                        resultArray.Add(i);
+                    }
+                }
+                return getLeadSearch(s, resultArray);
+            }
+            return getLeadSearch(s, array);
+        }
+        private List<Object> getLeadSearch(Series f, List<Object> array)
+        {
+            if (!String.IsNullOrEmpty(f.getLead()))
+            {
+                List<Object> resultArray = new List<Object>();
+                foreach (Series i in array)
+                {
+                    if (i.getLead() == f.getLead())
+                    {
+                        resultArray.Add(i);
+                    }
+                }
+                return getYearSearch(f, resultArray);
+            }
+            return getYearSearch(f, array);
+        }
+        private List<Object> getYearSearch(Series s, List<Object> array)
+        {
+            if (s.getYear() != 0)
+            {
+                List<Object> resultArray = new List<Object>();
+                foreach (Series i in array)
+                {
+                    if (i.getYear() == s.getYear())
+                    {
+                        resultArray.Add(i);
+                    }                   
+                }
+                return resultArray;
+            }
+            return array;
+        }
+        public int getID(string name)
+        {
+            foreach (Series f in seriesArray)
+            {
+                if (f.getName() == name)
+                {
+                    return f.getSeriesID();
+                }
+            }
+            return 0;
+        }
+
         /// <summary>
         /// Функция за връщане на пълният масив
         /// </summary>
@@ -54,6 +135,18 @@ namespace VideoShop.BufferClasses
             return true;
         }
 
+        public List<Object> adminSearch(Genres g)
+        {
+            List<Object> resultArray = new List<Object>();
+            foreach(Series s in seriesArray)
+            {
+                if(s.getStringGenre() == g.getGenreName())
+                {
+                    resultArray.Add(s);
+                }
+            }
+            return resultArray;
+        }
         /// <summary>
         /// Функция за добавяне на запис 
         /// </summary>

@@ -66,8 +66,8 @@ namespace VideoShop.BufferClasses
         /// <returns>Връща true ако премахването е успешно</returns>
         public bool removeRecord(FilmsLibrary f)
         {
-
-            if (!checkIfInside(f))
+            int index = 0;
+            if (checkIfInside(f))
             {
                 MessageBox.Show("Не можe");
                 return false;
@@ -79,19 +79,20 @@ namespace VideoShop.BufferClasses
                 {
                     if(n.getUserID() == f.getUserID())
                     {
-                        filmLibraryArray.Remove(n);
+                        
                         if (!libraryTable.Delete(f))
                         {
                             MessageBox.Show("no");
                             return false;
                         }
+                        index = filmLibraryArray.IndexOf(n);
                     }
-                    
+                   
 
                 }
             }
-
-            MessageBox.Show("yes");
+            filmLibraryArray.RemoveAt(index);
+            
             return true;
         }
 

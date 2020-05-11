@@ -3,18 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using VideoShop.Classes;
 using VideoShop.TableClasses;
-using System.Windows.Forms;
 
 namespace VideoShop.BufferClasses
 {
-    class EmployeesBuffer
+    class PositionsBuffer
     {
-        private TableTemplate<Employees> employeesTable = new TableTemplate<Employees>();
-        private List<Object> employeesArray = new List<Object>();
+        private TableTemplate<Positions> posTable = new TableTemplate<Positions>();
+        private List<Object> positionsArray = new List<Object>();
 
-        public EmployeesBuffer()
+        public PositionsBuffer()
         {
 
         }
@@ -25,28 +25,40 @@ namespace VideoShop.BufferClasses
         /// <returns>Връща масив от обекти</returns>
         public List<Object> returnRecords()
         {
-            return employeesArray;
+            return positionsArray;
         }
 
-        public int getID(string phone)
+        public int getID(string name)
         {
-            foreach(Employees emp in employeesArray)
+            foreach (Positions p in positionsArray)
             {
-                if(phone == emp.getPhone())
+                if (name == p.getPosName())
                 {
-                    return emp.getID();
+                    return p.getID();
                 }
             }
             return 0;
+        }
+
+        public string getPosition(int id)
+        {
+            foreach (Positions p in positionsArray)
+            {
+                if (id == p.getID())
+                {
+                    return p.getPosName();
+                }
+            }
+            return "";
         }
 
         /// <summary>
         /// Взима данните от базата данни и ги записва в буферния масив
         /// </summary>
         /// <returns>Връща true ако всички данни са добавени успешно</returns>
-        public bool initializeServicesArray()
+        public bool initializePositionsArray()
         {
-            if (!employeesTable.Select("EMPLOYEES", employeesArray))
+            if (!posTable.Select("POSITIONS", positionsArray))
             {
                 MessageBox.Show("Неуспешно зареждане на данните");
                 return false;
@@ -54,21 +66,20 @@ namespace VideoShop.BufferClasses
             return true;
         }
 
-
         /// <summary>
         /// Функция за добавяне на запис 
         /// </summary>
         /// <param name="e">Записът, който ще добавяме</param>
         /// <returns>Връща true ако записът е добавен успешно</returns>
-        public bool insertRow(Employees e)
+        public bool insertRow(Positions e)
         {
             if (!checkDuplicateRecord(e))
             {
-                MessageBox.Show("Този служител вече съществува.");
+                MessageBox.Show("Този град вече съществува.");
                 return false;
             }
 
-            if (!employeesTable.Insert("EMPLOYEES", e))
+            if (!posTable.Insert("POSITIONS", e))
             {
                 MessageBox.Show("Неуспешен опит за извършване на операцията. ");
                 return false;
@@ -83,7 +94,7 @@ namespace VideoShop.BufferClasses
         /// </summary>
         /// <param name="s">Вече промененият запис</param>
         /// <returns>Връща true ако промяната е станала успешно</returns>
-        public bool changeRow(Employees e)
+        public bool changeRow(Positions e)
         {
             if (!checkIfInside(e))
             {
@@ -91,17 +102,12 @@ namespace VideoShop.BufferClasses
                 return false;
             }
 
-            foreach (Employees n in employeesArray)
+            foreach (Positions n in positionsArray)
             {
                 if (n.getID() == e.getID())
-                {   
-                    n.setFirstName(e.getFirstName());
-                    n.setLastName(e.getLastName());
-                    n.setSalary(e.getSalary());
-                    n.setPhone(e.getPhone());
-                    n.setPos(e.getPos());
-                    n.setCity(e.getCity());
-                    if (!employeesTable.Update("EMPLOYEES", e))
+                {
+                    n.setPosName(e.getPosName());
+                    if (!posTable.Update("POSITIONS", e))
                     {
                         MessageBox.Show("no");
                         return false;
@@ -118,7 +124,7 @@ namespace VideoShop.BufferClasses
         /// </summary>
         /// <param name="s">Записът, който ще премахваме</param>
         /// <returns>Връща true ако премахването е успешно</returns>
-        public bool removeRecord(Employees e)
+        public bool removeRecord(Positions e)
         {
 
             if (!checkIfInside(e))
@@ -127,12 +133,12 @@ namespace VideoShop.BufferClasses
                 return false;
             }
 
-            foreach (Employees n in employeesArray)
+            foreach (Positions n in positionsArray)
             {
                 if (n.getID() == e.getID())
-                {                    
-                    employeesArray.Remove(n);
-                    if (!employeesTable.Delete(e))
+                {
+                    positionsArray.Remove(n);
+                    if (!posTable.Delete(e))
                     {
                         MessageBox.Show("no");
                         return false;
@@ -150,9 +156,9 @@ namespace VideoShop.BufferClasses
         /// </summary>
         /// <param name="s">Записът, който търсим</param>
         /// <returns>Връща true ако записът съществува </returns>
-        private bool checkIfInside(Employees e)
+        private bool checkIfInside(Positions e)
         {
-            foreach (Employees n in employeesArray)
+            foreach (Positions n in positionsArray)
             {
                 if (n.getID() == e.getID())
                 {
@@ -167,9 +173,9 @@ namespace VideoShop.BufferClasses
         /// </summary>
         /// <param name="e">Записът, който проверяваме</param>
         /// <returns>Връща true ако записът не се дублира</returns>
-        private bool checkDuplicateRecord(Employees e)
+        private bool checkDuplicateRecord(Positions e)
         {
-            foreach (Employees n in employeesArray)
+            foreach (Positions n in positionsArray)
             {
                 if (n.getID() == e.getID())
                 {
@@ -183,9 +189,10 @@ namespace VideoShop.BufferClasses
         /// Добавяне на нов запис в буферния масив
         /// </summary>
         /// <param name="e">Записът, който добавяме</param>
-        private void addNewRecord(Employees e)
+        private void addNewRecord(Positions e)
         {
-            employeesArray.Add(e);
+            positionsArray.Add(e);
         }
+
     }
 }

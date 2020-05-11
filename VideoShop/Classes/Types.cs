@@ -18,7 +18,10 @@ namespace VideoShop.Classes
             typeID = id;
             typeName = name;
         }
-
+        public Types( string name)
+        {
+            typeName = name;
+        }
         //Setters
         public void setID(int id)
         {
@@ -28,6 +31,7 @@ namespace VideoShop.Classes
         {
             typeName = name;
         }
+     
 
         //Getters
         public int getID()

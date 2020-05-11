@@ -15,6 +15,8 @@ namespace VideoShop.Classes
         private string phoneNumber;
         private int posID;
         private int cityID;
+        private string pos;
+        private string city;
 
         public Employees()
         {
@@ -69,6 +71,17 @@ namespace VideoShop.Classes
         {
             cityID = id;
         }
+        public void setStringPos(string pos)
+        {
+            this.pos = pos;
+        }
+        public void setStringCity(string city)
+        {
+            this.city = city;
+        }
+
+
+
 
 
         //getters
@@ -99,6 +112,19 @@ namespace VideoShop.Classes
         public int getCity()
         {
             return cityID;
+        }
+        public string getStringPos()
+        {
+            return this.pos;
+        }
+        public string getStringCity()
+        {
+            return this.city;
+        }
+
+        public string[] getStringEmployee()
+        {
+            return new string[] { firstName, lastName, salary.ToString(), phoneNumber, pos, city };
         }
     }
 }

@@ -14,6 +14,9 @@ namespace VideoShop.Classes
         private static readonly object _syncObject = new object();
         private SqlConnection conn;
 
+        /// <summary>
+        /// Създаване на инстанция за връзката към базата данни
+        /// </summary>
         private Connection()
         {
             conn = new SqlConnection(connString);
@@ -36,6 +39,10 @@ namespace VideoShop.Classes
                 return _instance;
             }
         }
+        /// <summary>
+        /// Функцията връща връзката, която е създадена
+        /// </summary>
+        /// <returns>Връзката, която е създадена</returns>
         public SqlConnection returnConnection()
         {
             return conn;

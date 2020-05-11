@@ -13,6 +13,10 @@ namespace VideoShop.Classes
         private double servPrice = 0;
 
         //Constructors
+        public ServicesNames()
+        {
+
+        }
         public ServicesNames(string name, float price) {
             servName = name;
             servPrice = price;
@@ -50,6 +54,11 @@ namespace VideoShop.Classes
         public double getServPrice()
         {
             return servPrice;
+        }
+
+        public string[] returnStringArray()
+        {
+            return new string[]{ servName, servPrice.ToString() };
         }
     }
 }
