@@ -121,6 +121,7 @@
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader32 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label2 = new System.Windows.Forms.Label();
             this.categoryView = new System.Windows.Forms.TabPage();
             this.all = new System.Windows.Forms.Button();
@@ -1162,7 +1163,8 @@
             this.columnHeader2,
             this.columnHeader3,
             this.columnHeader4,
-            this.columnHeader5});
+            this.columnHeader5,
+            this.columnHeader32});
             this.filmLibraryView.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.filmLibraryView.FullRowSelect = true;
             this.filmLibraryView.GridLines = true;
@@ -1200,6 +1202,11 @@
             // 
             this.columnHeader5.Text = "Година";
             this.columnHeader5.Width = 89;
+            // 
+            // columnHeader32
+            // 
+            this.columnHeader32.Text = "horoa";
+            this.columnHeader32.Width = 100;
             // 
             // label2
             // 
@@ -1640,8 +1647,8 @@
             this.ClientSize = new System.Drawing.Size(996, 620);
             this.Controls.Add(this.menuPanel);
             this.Controls.Add(this.topPanel);
-            this.Controls.Add(this.userTabView);
             this.Controls.Add(this.adminTabView);
+            this.Controls.Add(this.userTabView);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainMenu";
@@ -1824,5 +1831,6 @@
         private System.Windows.Forms.Button addCityBut;
         private System.Windows.Forms.ContextMenuStrip insertCitiesStrip;
         private System.Windows.Forms.ToolStripMenuItem changeCity;
+        private System.Windows.Forms.ColumnHeader columnHeader32;
     }
 }

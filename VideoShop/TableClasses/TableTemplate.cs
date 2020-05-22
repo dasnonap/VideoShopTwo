@@ -182,7 +182,7 @@ namespace VideoShop.TableClasses
         /// <param name="tableName">Името на таблицата</param>
         /// <returns>Връща обект, който се записва в подаденият масив</returns>
         private Object selectReader(SqlDataReader sr)
-        {            
+        {  
             switch (typeof(T).Name)
             {
                 case "Cities":

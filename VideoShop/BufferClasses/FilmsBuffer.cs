@@ -13,7 +13,7 @@ namespace VideoShop.BufferClasses
     {
         private TableTemplate<Films> filmsTable = new TableTemplate<Films>();
         private List<Object> filmsArray = new List<Object>();
-
+        
         public FilmsBuffer()
         {
 
