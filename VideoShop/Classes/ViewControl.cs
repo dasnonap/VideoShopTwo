@@ -189,7 +189,7 @@ namespace VideoShop.Classes
                             view.Items.Add(new ListViewItem(s.getStringArray()));
                         }
                         break;
-                    }
+                    }  
                 case "cities":
                     {
                         foreach(Cities c in cities.returnRecords())

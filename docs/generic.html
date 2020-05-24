@@ -1,0 +1,108 @@
+<!DOCTYPE HTML>
+<!--
+	Stellar by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Project VideoShop</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<h1>Project VideoShop</h1>						
+					</header>
+				<!-- Main -->
+					<div id="main">
+						<!-- Content -->
+							<section id="content" class="main">
+								<span class="image main"><img src="images/pic04.jpg" alt="" /></span>
+								<h2>How the app works</h2>
+								<p>The application is divided into five different layers. Each layer can only communicate with the layer below him. </p>
+								<div class="div row">
+									<div class="div column">
+										<img src="images/arch 2.png" />
+									</div>
+									<div class="div column">									
+										<h2>First Layer</h2>
+										<p>
+											The bottom layer is the database, which is implemented through MSSQL.In there I store all the information about films, series, subscriptions, genres, employees, cities, and for users.
+											Where the information about the user is hashed and then saved in to the database.
+										</p>			
+													
+										<h2>Second Layer</h2>
+										<p>
+											Then there is the TableTemplate class that communicates with the database. 
+											It is template because for each query to a table it goes through this class. Who, according to the class that is submitted, knows in which table to look for the data.
+										</p>	
+
+										<h2>Third Layer</h2>
+										<p>
+											Then there are the so-called buffer classes, which are used to store data from the tables in the database. 
+											They help us to speed up, because when we search for something it is searched in an array and not immediately in the database, which significantly slows down the operation
+										</p>	
+
+										<h2>Forth Layer</h2>
+										<p>
+											Then the ViewControl class, which houses most of the business logic. I use it to load certain data into the ListViewControls for tables. 
+											Also in this class I use the Singleton design pattern, in order to always work with one instance of the buffer classes. 
+											In it I load the specified data according to what type of login has occured user or administrator type of login.
+										</p>
+
+										<h2>Fifth Layer</h2>
+										<p>	
+											This layer is where all of the information is presented to the user and where he can interact with the data.
+											In these forms there are a lot of radio buttons and context menus to make the user's work easier. Also here I include the class for hashing user data.
+										</p>
+									</div>
+								</div>
+								
+							</section>
+
+					</div>
+
+				<!-- Footer -->
+					<footer id="footer">		
+						<section>
+							<h2>Check out the full documentation about the project here.</h2>
+							<ul class="actions">
+								<li><a href="https://github.com/dasnonap/VideoShopTwo" class="button">Learn More</a></li>
+							</ul>
+						</section>		
+						<section>
+							<h2>Contact me</h2>
+							<dl class="alt">
+								<dt>Address</dt>
+								<dd> &bull; Varna &bull; Bulgaria</dd>
+								<dt>Email</dt>
+								<dd><a href="https://gmail.com">ivanmihov971@gmail.com</a></dd>
+							</dl>
+							<ul class="icons">
+								<li><a href="https://github.com/dasnonap" class="icon brands fa-github alt"><span class="label">GitHub</span></a></li>
+							</ul>
+						</section>
+						<p class="copyright">&copy; Ivan Mihov. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
